@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';//para enviar informacion a otra pagina
 import { ToastController } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -22,6 +23,10 @@ export class LoginPage implements OnInit {
   constructor(private router: Router, public toastController: ToastController) {
 
  }
+ recuperarPass() {
+  console.log("llamado siguiente")
+  this.router.navigate(['/login-recover'])
+  }
 
   iniciar(){
     //Validar
@@ -35,7 +40,7 @@ export class LoginPage implements OnInit {
         };
         this.router.navigate(['/home'], navigationExtras);
     }else{
-      this.presentToast("Error al iniciar sesión"+this.field, 5500)//cambiar
+      this.presentToast("Error, falta: "+this.field, 5500)//cambiar
     }
   }
 
