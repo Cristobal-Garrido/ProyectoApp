@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';//para enviar informacion a otra pagina
 import { ToastController } from '@ionic/angular';
 
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,23 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
+
+  errors = [
+    {type: 'required', message: '¿Olvidas algo? ¡Usuario vacio!'},
+    {type: 'maxlength', message: 'No puede tener mas de 15 caracteres'}
+  ]
+
+  errorsPass = [
+    {type: 'required', message: '¿Olvidas algo? ¡Contraseña vacia!'},
+    {type: 'maxlength', message: 'No puede tener mas de 15 caracteres'},
+    {type: 'minlength', message: 'No puede tener menos de 4 caracteres'},
+  ]
+
+
+  login = new FormGroup({
+    name: new FormControl('', [Validators.required, Validators.maxLength(15)]),
+    pass: new FormControl('', [Validators.required, Validators.maxLength(15), Validators.minLength(3)])
+  })
 
   //modelo de usuario
   user = {
@@ -28,10 +46,14 @@ export class LoginPage implements OnInit {
   this.router.navigate(['/login-recover'])
   }
 
+  irHome() {
+    this.router.navigate(['/home'])
+  }
+
   iniciar(){
     //Validar
     if (this.validateModel(this.user)) {
-      this.presentToast("Bienvenido "+ this.user.usuario)
+      this.presentToast("Se ha iniciado sesión correctamente ")
       //instanciar navigationExtras
         let navigationExtras: NavigationExtras = {
           state: {
@@ -55,6 +77,7 @@ export class LoginPage implements OnInit {
     }
     return true;
   }
+
   async presentToast(msg: string, duracion?: number) {
     const toast = await this.toastController.create({
       message: msg,
@@ -62,6 +85,4 @@ export class LoginPage implements OnInit {
     });
     toast.present();
   }
-
-
 }
