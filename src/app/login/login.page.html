@@ -1,65 +1,65 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Qwitcher+Grypen&family=Roboto:wght@100&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Qwitcher+Grypen&family=Roboto:wght@100&display=swap" rel="stylesheet">
 
 <ion-header class="ion-no-border">
-  <ion-toolbar>
-    <ion-title class="ion-text-center title">
-      <!-- <div class="back-circle"></div> -->
-      <div class="img-container">
-        <img class="logo" src="https://www.youniforms.cl/wp-content/uploads/2020/01/DUOC.png" alt="" />
-      </div>
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title class="ion-text-center title">
+            <!-- <div class="back-circle"></div> -->
+            <div class="img-container">
+                <img class="logo" src="https://www.youniforms.cl/wp-content/uploads/2020/01/DUOC.png" alt="" />
+            </div>
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 
 
 <ion-content class="custom-font" [fullscreen]="true">
-  
-  <div class="form-title-container">
-    <div class="form-title custom-font">TeLLevoApp</div>
-  </div>
-  <!--  <form action="">
+
+    <div class="form-title-container">
+        <div class="form-title custom-font">TeLLevoApp</div>
+    </div>
+    <!--  <form action="">
       <ion-list>
         <ion-item> -->
-  <!-- <ion-label>Titulo 1</ion-label>
+    <!-- <ion-label>Titulo 1</ion-label>
           <ion-input></ion-input> -->
-  <!-- <app-input>holaxd</app-input> -->
-  <!--  </ion-item>
+    <!-- <app-input>holaxd</app-input> -->
+    <!--  </ion-item>
       </ion-list> -->
 
-  <!-- <ion-button type="submit" expand="block">Login</ion-button> -->
-  <!--  </form> -->
+    <!-- <ion-button type="submit" expand="block">Login</ion-button> -->
+    <!--  </form> -->
 
-  <svg class="back-blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <svg class="back-blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
     <path fill="#032B44" d="M35.1,-66.9C41.4,-57.1,39.7,-39.5,41.2,-27.1C42.6,-14.6,47.2,-7.3,53.6,3.7C60.1,14.8,68.4,29.5,64.8,38.3C61.3,47.1,45.9,50,33.1,53.7C20.4,57.5,10.2,62,-2.4,66.2C-15,70.3,-30,74.1,-40.5,69.1C-51.1,64.1,-57.2,50.3,-64.4,37.3C-71.6,24.4,-79.8,12.2,-75.5,2.5C-71.2,-7.2,-54.3,-14.4,-47.5,-28C-40.6,-41.5,-43.8,-61.4,-37.5,-71.3C-31.3,-81.1,-15.6,-80.9,-0.6,-79.8C14.4,-78.7,28.7,-76.7,35.1,-66.9Z" transform="translate(100 100)" />
   </svg>
-  
-  
-  <div class="ion-padding form-container">
-    
-    <!-- <form action=""> Produce error -->
 
-      <div class="wrap-input">
-        <input class="input" type="text" [(ngModel)]="user.usuario" name="user-name" placeholder="Nombre de usuario">
-      </div>
-    
-      <div class="wrap-input">
-        <input class="input" type="password" [(ngModel)]="user.password" placeholder="Escriba su contraseña">
-      </div>
 
-      <div class="container-form-btn">
-        <button class="form-btn custom-font" (click)="iniciar()">Iniciar sesión</button>
-      </div>
+    <div class="ion-padding form-container">
 
-    <!-- </form> -->
-    <div class="pass-recover-container">
-      <a href="" (click)="recuperarPass()" >¿Contraseña    olvidada?</a>
+        <!-- <form action=""> Produce error -->
+
+        <div class="wrap-input">
+            <input class="input" type="text" [(ngModel)]="user.usuario" name="user-name" placeholder="Nombre de usuario">
+        </div>
+
+        <div class="wrap-input">
+            <input class="input" type="password" [(ngModel)]="user.password" placeholder="Escriba su contraseña">
+        </div>
+
+        <div class="container-form-btn">
+            <button class="form-btn custom-font" (click)="iniciar()">Iniciar sesión</button>
+        </div>
+
+        <!-- </form> -->
+        <div class="pass-recover-container">
+            <a href="" (click)="recuperarPass()">¿Olvidó su contraseña?</a>
+        </div>
     </div>
-  </div>
-  
-  
+
+
 </ion-content>
 
 
@@ -71,4 +71,3 @@
     </p>
   </ion-toolbar>
 </ion-footer> -->
-
