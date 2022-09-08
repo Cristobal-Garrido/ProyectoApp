@@ -8,6 +8,7 @@ import { LoginRecoverPageRoutingModule } from './login-recover-routing.module';
 
 import { LoginRecoverPage } from './login-recover.page';
 
+
 @NgModule({
   imports: [
     CommonModule,

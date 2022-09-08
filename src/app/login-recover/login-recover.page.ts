@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationExtras } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login-recover',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginRecoverPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, public toastController: ToastController) { }
 
   ngOnInit() {
   }
 
+  irLogin() {
+    console.log("llamado siguiente")
+    this.router.navigate(['../login'])
+    }
 }
