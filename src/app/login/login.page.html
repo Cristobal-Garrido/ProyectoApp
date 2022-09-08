@@ -6,7 +6,9 @@
   <ion-toolbar>
     <ion-title class="ion-text-center title">
       <!-- <div class="back-circle"></div> -->
-      TeLLevoApp
+      <div class="img-container">
+        <img class="logo" src="https://www.youniforms.cl/wp-content/uploads/2020/01/DUOC.png" alt="" />
+      </div>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,8 +16,9 @@
 
 
 <ion-content class="custom-font" [fullscreen]="true">
-  <div class="img-container">
-    <img class="logo" src="https://www.youniforms.cl/wp-content/uploads/2020/01/DUOC.png" alt="" />
+  
+  <div class="form-title-container">
+    <div class="form-title custom-font">TeLLevoApp</div>
   </div>
   <!--  <form action="">
       <ion-list>
@@ -52,7 +55,7 @@
 
     <!-- </form> -->
     <div class="pass-recover-container">
-      <a href="">¿Contraseña olvidada?</a>
+      <a href="" (click)="recuperarPass()" >¿Contraseña    olvidada?</a>
     </div>
   </div>
   

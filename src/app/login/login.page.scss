@@ -39,8 +39,25 @@
 }
 
 .img-container {
-  height: 10%;
+  height: 50px;
   padding: 10px;
+  margin: 20px 0 20px;
+}
+
+.logo {
+    height: 100%;
+}
+
+.form-title-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px 0 80px;
+}
+
+.form-title {
+    color: white;
+    font-size: xx-large;
+    font-weight: bolder;
 }
 
 ion-toolbar {
