@@ -48,14 +48,26 @@ export class LoginPage implements OnInit {
   }
 
   irHome() {
-    if (this.login.get('name').hasError /* && (login.get('name').touched || login.get('name').dirty) */) {
+   const input = document.querySelector('#oeoe') as HTMLInputElement;
+   const { value } = input;
+   const password = document.querySelector('.pass-oeoe') as HTMLInputElement;
+   const passwordValue = password.value;
 
-      this.router.navigate(['/home'])
-      this.presentToast("Se ha iniciado sesión correctamente ")
-    }else{
-      this.presentToast("Error")
-    };
-    
+   if(passwordValue.length < 4 || value.length < 4){
+    return;
+   }
+   
+   if(!value || !passwordValue){
+    this.presentToast('Debes ingresar un nombre de usuario/contraseña', 1000)
+    return;
+   }
+
+   this.router.navigate(['/home']);
+
+   setTimeout( () => {
+    const secondQuery = document.querySelector('.oeoe-title') as HTMLInputElement;
+    secondQuery.innerText = `¡Bienvenid@ ! ${value}`;
+   }, 0)
   }
 
   iniciar(){

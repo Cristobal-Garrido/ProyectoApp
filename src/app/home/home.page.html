@@ -9,9 +9,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <ion-header>
-            <ion-title size="large" class="title">¡Bienvenid@, {{user.usuario}}!</ion-title>
-    </ion-header>
+    <ion-title size="large" style="font-size: 16px;" class="title oeoe-title"></ion-title>
     <div>
         <ion-grid>
             <ion-row>
@@ -26,9 +24,5 @@
                 </ion-col>
             </ion-row>
         </ion-grid>
-    </div>
-    <div>
-        <ion-button (click)="cerrarSesión()">Cerrar Sesión</ion-button>
-        <p>{{ handlerMessage }}</p>
     </div>
 </ion-content>

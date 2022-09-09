@@ -24,7 +24,7 @@ export class HomePage {
       if (this.router.getCurrentNavigation().extras.state) {
         this.user = this.router.getCurrentNavigation().extras.state.user;
         console.log(this.user)
-      }else{this.router.navigate(['/login'])}
+      }else{this.router.navigate(['/home'])}
     });
   }
   async cerrarSesion(){

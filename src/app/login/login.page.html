@@ -54,7 +54,7 @@
       <form action="" [formGroup]="login">
 
         <div class="wrap-input">
-          <input class="input" type="text" formControlName="name" name="user-name" placeholder="Nombre de usuario" spellcheck="false">
+          <input id="oeoe" class="input" type="text" formControlName="name" name="user-name" placeholder="Nombre de usuario" spellcheck="false">
         </div>
 
         <div class="error-msg">
@@ -66,7 +66,7 @@
         </div>
 
         <div class="wrap-input">
-          <input class="input" type="password" formControlName="pass" name="password" placeholder="Escriba su contraseña">
+          <input class="input pass-oeoe" type="password" formControlName="pass" name="password" placeholder="Escriba su contraseña">
         </div>
 
         <div class="error-msg">
@@ -86,8 +86,7 @@
 
     <div class="pass-recover-container">
       <ion-router-link (click)="recuperarPass()">¿Contraseña olvidada?</ion-router-link>
-    </div>
-  </div>  
+    </div> 
   
 </ion-content>
 
