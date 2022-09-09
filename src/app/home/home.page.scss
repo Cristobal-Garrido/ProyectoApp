@@ -23,6 +23,13 @@
   line-height: 26px;
 }
 
+#subtitulo{
+  font-size: 16px;
+  color:#ffffff;
+  text-align:center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 #container p {
   font-size: 16px;
   line-height: 22px;
@@ -32,16 +39,23 @@
   margin: 0;
 }
 
+.boton{
+  font-size: 15px;
+  background-color: #016eb3;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 #container a {
   text-decoration: none;
 }
 
-#titulo{
-  padding: 60px;
+.titulo{
+  padding: 5px;
   text-align: center;
-  background: #000caf;
-  color: #000000;
-  font-size: 30px;
+  color: #ffffff;
+  font-size: 27px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 ion-content {
   --background: #055181;

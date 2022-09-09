@@ -27,26 +27,7 @@ export class HomePage {
       }else{this.router.navigate(['/home'])}
     });
   }
-  async cerrarSesion(){
-    const alert = await this.alertController.create({
-      header: '¿Está seguro de Cerrar la Sesión?',
-      buttons: [
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-          handler: () => {
-            this.mensaje = 'Se canceló la operación';
-          },
-        },
-        {
-          text: 'Sí',
-          role: 'confirm',
-          handler: () => {
-            this.mensaje = 'Sesión Cerrada';
-            this.router.navigate(['/login'])
-          },
-        },
-      ],
-    });
+  cerrarSesion(){
+    this.router.navigate(['/login'])
   }
 }

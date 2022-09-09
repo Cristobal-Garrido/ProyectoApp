@@ -3,27 +3,32 @@
         <img src="assets/img/duocuclogo.jpg"> </div>
     <ion-toolbar>
         <ion-title  class="ion-text-center">
-            <h1 class="titulo">TeLlevoApp</h1>
+            <h1 class="titulo">Te Llevo App</h1>
         </ion-title>
-    
     </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <ion-title size="large" style="font-size: 16px;" class="title oeoe-title"></ion-title>
+    <ion-title id="subtitulo" size="large" class="title oeoe-title"></ion-title>
     <div>
         <ion-grid>
             <ion-row>
                 <ion-col size="12">
-                    <ion-button expand="block">Puedo movilizar a otros</ion-button>
+                    <ion-button class="boton" size="large" expand="block">Puedo movilizar a otros</ion-button>
                 </ion-col>
             </ion-row>
-                <p class="title">O</p>
+                <p class="titulo">O</p>
             <ion-row>
                 <ion-col size="12">
-                    <ion-button color="" expand="block">Necesito Movilización</ion-button>
+                    <ion-button class="boton" size="large" expand="block">Necesito Movilización</ion-button>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="12">
+                    <ion-button class="boton" size="small" expand="block" (click)="cerrarSesion()">Cerrar Sesión</ion-button>
                 </ion-col>
             </ion-row>
         </ion-grid>
     </div>
+    
 </ion-content>
