@@ -16,19 +16,20 @@ export class LoginPage implements OnInit {
 
   errors = [
     {type: 'required', message: '¿Olvidas algo? ¡Usuario vacio!'},
-    {type: 'maxlength', message: 'No puede tener mas de 15 caracteres'}
+    {type: 'maxlength', message: 'Usuario No puede tener mas de 15 caracteres'},
+    {type: 'minlength', message: 'Usuario Debe tener al menos 4 caracteres'},
   ]
 
   errorsPass = [
     {type: 'required', message: '¿Olvidas algo? ¡Contraseña vacia!'},
     {type: 'maxlength', message: 'No puede tener mas de 15 caracteres'},
-    {type: 'minlength', message: 'No puede tener menos de 4 caracteres'},
+    {type: 'minlength', message: 'Debe tener al menos 4 caracteres'},
   ]
 
 
   login = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.maxLength(15)]),
-    pass: new FormControl('', [Validators.required, Validators.maxLength(15), Validators.minLength(3)])
+    name: new FormControl('', [Validators.required, Validators.maxLength(15), Validators.minLength(4)]),
+    pass: new FormControl('', [Validators.required, Validators.maxLength(15), Validators.minLength(4)])
   })
 
   //modelo de usuario
@@ -47,7 +48,14 @@ export class LoginPage implements OnInit {
   }
 
   irHome() {
-    this.router.navigate(['/home'])
+    if (this.login.get('name').hasError /* && (login.get('name').touched || login.get('name').dirty) */) {
+
+      this.router.navigate(['/home'])
+      this.presentToast("Se ha iniciado sesión correctamente ")
+    }else{
+      this.presentToast("Error")
+    };
+    
   }
 
   iniciar(){

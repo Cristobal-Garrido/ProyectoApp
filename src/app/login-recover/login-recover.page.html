@@ -42,19 +42,30 @@
     <!-- <form action=""> Produce error -->
       <div class="restablecer-info-container">
         <div class="restablecer-info">
-          Ingresa tu nombre de usuario, o tu correo institucional y te enviaremos un enlace para restablecer tu contraseña.
+          Ingresa tu correo institucional y te enviaremos un enlace para restablecer tu contraseña.
         </div>
       </div>
 
-      <div class="wrap-input">
-        <input class="input" type="text" name="email" placeholder="Nombre de usuario">
-      </div>
-      <!-- <ion-label *ngIf="form.get('email').touched && form.get('email').errors.required">Email invalido</ion-label> -->
+      <form action="" [formGroup]="login">
+        <div class="wrap-input">
+          <input class="input" type="text" name="email" formControlName="name" placeholder="Correo institucional" spellcheck="false">
+        </div>
+  
+        <div class="error-msg">
+          <div *ngFor="let er of errors">
+            <ng-container *ngIf="login.get('name').hasError(er.type) && (login.get('name').touched || login.get('name').dirty)">
+              <div class="error">{{er.message}}</div>
+            </ng-container>
+          </div>
+        </div>
+        <!-- <ion-label *ngIf="form.get('email').touched && form.get('email').errors.required">Email invalido</ion-label> -->
+  
+  
+        <div class="container-form-btn">
+          <button (click)="enviarEnlace()" class="form-btn custom-font">Enviar</button>
+        </div>
+      </form>
 
-
-      <div class="container-form-btn">
-        <button class="form-btn custom-font">Enviar</button>
-      </div>
 
     <!-- </form> -->
     <div class="pass-recover-container">
