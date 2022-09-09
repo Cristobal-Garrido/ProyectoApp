@@ -1,10 +1,16 @@
  <ion-header class="ion-no-border">
     <div>
-        <img src="assets/img/duocuclogo.jpg"> </div>
+        <img style="padding:10px;" src="assets/img/duocuclogo.jpg"> </div>
     <ion-toolbar>
         <ion-title  class="ion-text-center">
-            <h1 class="titulo">Te Llevo App</h1>
+            <h1 class="titulo">TeLlevoApp</h1>
         </ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button color="secondary"
+                [text]="buttonText"
+                [icon]="buttonIcon">
+            </ion-back-button>
+          </ion-buttons>
     </ion-toolbar>
 </ion-header>
 
