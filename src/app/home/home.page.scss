@@ -9,8 +9,13 @@
 }
 
 .title {
-  font-weight: bold;
-  text-align: center;
+  .header {
+    padding: 60px;
+    text-align: center;
+    background: #000caf;
+    color: #000000;
+    font-size: 30px;
+  }
 }
 
 #container strong {
@@ -29,4 +34,12 @@
 
 #container a {
   text-decoration: none;
+}
+
+#titulo{
+  padding: 60px;
+  text-align: center;
+  background: #000caf;
+  color: #000000;
+  font-size: 30px;
 }
