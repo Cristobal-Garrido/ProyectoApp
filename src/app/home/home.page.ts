@@ -25,10 +25,29 @@ export class HomePage {
       if (this.router.getCurrentNavigation().extras.state) {
         this.user = this.router.getCurrentNavigation().extras.state.user;
         console.log(this.user)
-      }else{this.router.navigate(['/login'])}
+      }else{this.router.navigate(['/home'])}
     });
   }
-  cerrarSesion(){
-    this.router.navigate(['/login']);
+  async cerrarSesion(){
+    const alert = await this.alertController.create({
+      header: '¿Está seguro de Cerrar la Sesión?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            this.mensaje = 'Se canceló la operación';
+          },
+        },
+        {
+          text: 'Sí',
+          role: 'confirm',
+          handler: () => {
+            this.mensaje = 'Sesión Cerrada';
+            this.router.navigate(['/login'])
+          },
+        },
+      ],
+    });
   }
 }
