@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { NavigationExtras } from '@angular/router';
 
 
 
@@ -22,15 +23,12 @@ export class HomePage {
 
 
   constructor(private activeroute: ActivatedRoute, private router: Router, public alertController: AlertController) {
-
-    this.router.navigate(['home/uno']);
-
-    /* this.activeroute.queryParams.subscribe(params => {
+    this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.user = this.router.getCurrentNavigation().extras.state.user;
         console.log(this.user)
       }else{this.router.navigate(['/home'])}
-    }); */
+    }); 
 
   }
 
