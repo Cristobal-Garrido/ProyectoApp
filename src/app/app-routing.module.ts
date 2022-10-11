@@ -20,6 +20,11 @@ const routes: Routes = [
     path: 'login-recover',
     loadChildren: () => import('./login-recover/login-recover.module').then( m => m.LoginRecoverPageModule)
   },
+  {
+    path: '**',
+    loadChildren: () => import('./not-found/not-found.module').then( m => m.NotFoundPageModule)
+  },
+
 
 ];
 

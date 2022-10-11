@@ -66,7 +66,7 @@ export class LoginPage implements OnInit {
 
    setTimeout( () => {
     const secondQuery = document.querySelector('.oeoe-title') as HTMLInputElement;
-    secondQuery.innerText = `¡Bienvenid@ ! ${value}`;
+    /* secondQuery.innerText = `¡Bienvenid@ ! ${value}`; */
    }, 0)
   }
 
