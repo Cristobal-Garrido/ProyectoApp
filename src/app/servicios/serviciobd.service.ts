@@ -69,7 +69,7 @@ export class ServiciobdService {
       });
     }
 
-    addNoticia(conductor,texto){
+    addViaje(conductor,texto){
       let data=[conductor,texto];
       return this.database.executeSql('INSERT INTO viaje(conductor,texto) VALUES(?,?)',data)
       .then(()=>{

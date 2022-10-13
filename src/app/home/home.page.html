@@ -3,18 +3,15 @@
         <img src="assets/img/duocuclogo.jpg"> </div>
     <ion-toolbar>
         <ion-title  class="ion-text-center">
-            <h1 class="title">TeLlevoApp</h1>
-        </ion-title> -->
+            <h1 class="title"></h1>
+        </ion-title>
 
-        <ion-segment value="uno" (ionChange)="segmentChanged($event)">
+        <ion-segment color="success" value="uno" (ionChange)="segmentChanged($event)">
             <ion-segment-button value="uno">
-              <ion-icon name="musical-notes-outline"></ion-icon>
+                <ion-icon name="man"></ion-icon>
             </ion-segment-button>
             <ion-segment-button value="dos">
-              <ion-icon name="play-outline"></ion-icon>
-            </ion-segment-button>
-            <ion-segment-button value="tres">
-              <ion-icon name="skull-outline"></ion-icon>
+                <ion-icon name="car"></ion-icon>
             </ion-segment-button>
           </ion-segment>
     </ion-toolbar>
@@ -22,7 +19,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <ion-title size="large" style="font-size: 16px;" class="title oeoe-title"></ion-title>
+   <!--  <ion-title size="large" style="font-size: 16px;" class="title oeoe-title"></ion-title>
     <div>
         <ion-grid>
             <ion-row>
@@ -37,6 +34,6 @@
                 </ion-col>
             </ion-row>
         </ion-grid>
-    </div> -->
+    </div>  -->
     <ion-router-outlet></ion-router-outlet>
 </ion-content>

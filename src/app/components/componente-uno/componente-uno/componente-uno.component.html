@@ -7,36 +7,36 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <h1>Listado de Viajes</h1>
-  <ion-searchbar (ionInput)="getItem($event)"></ion-searchbar>
-  <ion-list>
-    <ion-item-sliding *ngFor="let v of viajes">
-      <ion-item>
+  <div class="jojo">
+    <h1 class="vtitle">Viajes disponibles</h1>
+    <ion-searchbar (ionInput)="getItem($event)"></ion-searchbar>
+    <ion-list>
+      <ion-item-sliding *ngFor="let v of viajes">
         <ion-item>
-          <ion-avatar item-start>
-            <img src="assets/icon/favicon.png">
-          </ion-avatar>
-          <ion-label>
-            <h2>{{v.titulo}}</h2>
-            <p style="word-wrap: break-word; white-space: normal;">{{v.texto}}</p>
-          </ion-label>
+          <ion-item>
+            <ion-avatar item-start>
+              <img src="assets/icon/favicon.png">
+            </ion-avatar>
+            <ion-label>
+              <h2>{{v.conductor}}</h2>
+              <p style="word-wrap: break-word; white-space: normal;">{{v.conductor}}</p>
+            </ion-label>
+          </ion-item>
         </ion-item>
-      </ion-item>
-      <ion-item-options side="end">
-        <ion-item-option (click)="editar(v)">
-          <ion-icon name="create" ></ion-icon> Editar
-        </ion-item-option>
-        <ion-item-option color="danger" (click)="eliminar(v)">
-          <ion-icon name="trash"></ion-icon> Eliminar
-        </ion-item-option>
-      </ion-item-options>      
-    </ion-item-sliding>
-  </ion-list>
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button [routerLink]="['/agregar']">
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+        <ion-item-options side="end">
+          <ion-item-option (click)="editar(v)">
+            <ion-icon name="create" ></ion-icon> Editar
+          </ion-item-option>
+          <ion-item-option color="danger" (click)="eliminar(v)">
+            <ion-icon name="trash"></ion-icon> Eliminar
+          </ion-item-option>
+        </ion-item-options>      
+      </ion-item-sliding>
+    </ion-list>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button [routerLink]="['/agregar']">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
 </ion-content>
-
-

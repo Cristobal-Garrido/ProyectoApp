@@ -1,3 +1,27 @@
-<p>
-  componente-dos works!
-</p>
+<ion-content>
+    
+<div class="jojo">
+  <h1>Datos Viaje Nuevo</h1>
+  <ion-item>
+      <ion-label position="floating">Nombre conductor</ion-label>
+      <ion-input type="text" [(ngModel)]="nombreConductor"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+      <ion-label position="floating">Descripción</ion-label>
+      <ion-input type="text" [(ngModel)]="textoViaje"></ion-input>
+  </ion-item>
+
+  <ion-button shape="block" (click)="guardar()">Publicar Viaje</ion-button>
+
+</div>
+
+<!-- <div class="wrap-input">
+  <input id="oeoe" class="input" type="text" formControlName="name" name="user-name" placeholder="Nombre de conductor" spellcheck="false">
+</div>
+
+<div class="wrap-input">
+  <input id="oeoe" class="input" type="text" formControlName="desc" name="desc" placeholder="Descripción" spellcheck="false">
+</div> -->
+
+</ion-content>

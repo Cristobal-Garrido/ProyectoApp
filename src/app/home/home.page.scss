@@ -245,6 +245,7 @@ ion-router-link {
 
 .b {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-content: space-between;
 }
@@ -262,7 +263,7 @@ ion-router-link {
 .nt-title {
   text-align: center;
   font-weight: 600;
-  font-size: 40px;
+  font-size: 30px;
   color: white;
 }
 
@@ -277,6 +278,15 @@ ion-router-link {
 .nt-img {
   height: 100%;
   width: 100%;
+}
+
+.jojo {
+  margin-top: 100px;
+}
+
+.vtitle {
+  text-align: center;
+  font-weight: 600;
 }
 
 //ION
