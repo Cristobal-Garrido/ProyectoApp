@@ -263,7 +263,7 @@ ion-router-link {
 .nt-title {
   text-align: center;
   font-weight: 600;
-  font-size: 30px;
+  font-size: 25px;
   color: white;
 }
 
@@ -281,7 +281,7 @@ ion-router-link {
 }
 
 .jojo {
-  margin-top: 100px;
+  margin-top: 160px;
 }
 
 .vtitle {
@@ -289,7 +289,27 @@ ion-router-link {
   font-weight: 600;
 }
 
+.data {
+  color: black;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  height: 55px;
+  padding: 10px;
+  margin: 20px 0 20px;
+}
+
+.logo {
+    height: 100%;
+}
+
 //ION
+
+ion-item {
+  background-color: #8c8c8c;
+}
 
 ion-header {
   background-color: #055181;
