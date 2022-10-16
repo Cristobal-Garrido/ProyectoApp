@@ -3,7 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { NavigationExtras } from '@angular/router';
 import { ApiAlumnosService } from '../servicios/api-alumnos.service';
-
+import { NgModule } from '@angular/core';
+//FIREBASE
+/* import * as firebase from 'firebase'; */
 
 
 @Component({

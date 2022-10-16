@@ -30,7 +30,11 @@ export class ComponenteUnoComponent implements OnInit {
       maximumAge: 3600
   };
 
-  ngOnInit(){
+  ngOnInit(): void {
+      
+  }
+
+/*   ngOnInit(){
     this.servicioBD.dbState().subscribe((res)=>{
       if(res){
         this.servicioBD.fetchViajes().subscribe(item=>{
@@ -58,11 +62,12 @@ export class ComponenteUnoComponent implements OnInit {
     /* this.router.navigate(['/modificar'],navigationExtras); */
   }
 
-  eliminar(item) {
+  /* eliminar(item) {
     this.servicioBD.deleteViaje(item.id);
-    this.servicioBD.presentToast("Viaje Eliminado");
-  }
+    this.servicioBD.presentToast("Viaje Eliminado"); */
+/*   }
 
+<<<<<<< HEAD
   obtenerCoordenadasActuales(){
     this.geolocation.getCurrentPosition().then((resp) => {
       this.latitude = resp.coords.latitude;
@@ -72,3 +77,6 @@ export class ComponenteUnoComponent implements OnInit {
     })
   }
 }
+=======
+} */
+>>>>>>> dbe7d4a (Se agrega base de datos firebase incompleta)
