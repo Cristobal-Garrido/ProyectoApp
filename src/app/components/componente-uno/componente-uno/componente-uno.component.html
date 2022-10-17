@@ -1,38 +1,38 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Ejemplo con SQLite
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>
+            Ejemplo con SQLite
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="jojo2">
-    <div size="large" style="font-size: 16px;" class="title oeoe-title"></div>
-    <div class="avatar">
-      <ion-avatar>
-        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-      </ion-avatar>
-    </div>
-    <h1 class="vtitle">Viajes disponibles</h1>
+    <div class="jojo2">
+        <div size="large" style="font-size: 16px;" class="title oeoe-title"></div>
+        <div class="avatar">
+            <ion-avatar>
+                <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+            </ion-avatar>
+        </div>
+        <h1 class="vtitle">Viajes disponibles</h1>
 
-    <div class="viajes-contenedor">
-      <ion-item *ngFor="let v of viajes">
-        <ion-label>
-          <h2>{{ v.conductor }}</h2>
-          <p>{{v.texto}}</p>
-        </ion-label>
-      </ion-item>
+        <div class="viajes-contenedor">
+            <ion-item *ngFor="let v of viajes">
+                <ion-label>
+                    <h2>{{ v.conductor }}</h2>
+                    <p>{{v.texto}}</p>
+                </ion-label>
+            </ion-item>
 
-  
-      <ion-item color="primary">
-        <ion-label>
-          <h2 class="viajeTitulo">Prueba Titulo</h2>
-          <p class="ViajeTexto">Prueba Texto</p>
-        </ion-label>
-      </ion-item>
+
+            <ion-item color="primary">
+                <ion-label>
+                    <h2 class="viajeTitulo">Prueba Titulo</h2>
+                    <p class="ViajeTexto">Prueba Texto</p>
+                </ion-label>
+            </ion-item>
+        </div>
     </div>
-  </div>
     <!-- <ion-searchbar (ionInput)="getItem($event)"></ion-searchbar> -->
     <!-- <ion-list>
       <ion-item-sliding *ngFor="let v of viajes">
@@ -63,4 +63,27 @@
       </ion-fab-button>
     </ion-fab>
     </div> -->
+
+    <div class="ion-padding">
+        <ion-button (click)="obtenerCoordenadasActuales()" expand="round">
+            Obtener Localizaci&oacute;n
+        </ion-button>
+        <ion-list>
+            <ion-list-header>
+                <ion-label>Coordenadas de Localizaci&oacute;n</ion-label>
+            </ion-list-header>
+            <ion-item>
+                <ion-label>
+                    Latitud
+                </ion-label>
+                <ion-badge name="lat" color="dark" slot="end">{{latitude}}</ion-badge>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    Longitud
+                </ion-label>
+                <ion-badge name="lon" color="dark" slot="end">{{longitude}}</ion-badge>
+            </ion-item>
+        </ion-list>
+
 </ion-content>
