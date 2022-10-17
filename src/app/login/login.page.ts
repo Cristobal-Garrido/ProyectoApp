@@ -16,13 +16,13 @@ export class LoginPage implements OnInit {
   usernames = [];
 
   ngOnInit() {
-    this.http.get<any>('https://nancyb3a.github.io/Test/usuarios_PGY4121_09.json')
-    .subscribe(res => {
-      console.log('res', res);
-      console.log('alumnos: ',res.alumnos[0])
-      this.usernames = res
-    })
+  
   }
+
+
+  
+
+  
 
   errors = [
     {type: 'required', message: '¿Olvidas algo? ¡Usuario vacio!'},
@@ -62,21 +62,38 @@ export class LoginPage implements OnInit {
   this.router.navigate(['/login-recover'])
   }
 
-  irHome() {
+  async fetchWea() {
+    return fetch('https://nancyb3a.github.io/Test/usuarios_PGY4121_09.json')
+    .then(data => data.json())
+  }
+
+  async irHome() {
    const input = document.querySelector('#oeoe') as HTMLInputElement;
    const { value } = input;
    const password = document.querySelector('.pass-oeoe') as HTMLInputElement;
    const passwordValue = password.value;
+    const z = await this.fetchWea()
+    console.log('a: ',z)
+
+    const alumno = z.alumnos.map(a => {
+      if(a.username == value && a.password == passwordValue){
+       return a;
+      } 
+    }).filter(b => b != null)
+
+    console.log('alumno: ',alumno)
 
    if(passwordValue.length < 4 || value.length < 4){
     return;
    }
-   
+
    if(!value || !passwordValue){
     this.presentToast('Debes ingresar un nombre de usuario/contraseña', 1000)
     return;
    }
-
+   if(alumno.length == 0) {
+    return
+   }
    this.router.navigate(['/home']);
 
    setTimeout( () => {
