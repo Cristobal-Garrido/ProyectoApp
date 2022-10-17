@@ -12,7 +12,7 @@ import { ElementRef } from '@angular/core';
 export class ComponenteDosComponent implements OnInit {
 
   //Atributos por defecto
-  /* newViaje: Viaje = {
+  newViaje: Viaje = {
     nombre: '',
     precio: null,
     patente: '',
@@ -26,7 +26,7 @@ export class ComponenteDosComponent implements OnInit {
     patente: '',
     sector: '',
     descripcion: ''
-  } */
+  }
 
   public  nombre: '';
   public precio: null;
@@ -49,8 +49,8 @@ export class ComponenteDosComponent implements OnInit {
   }
 
   prueba() {
-    console.log('viaje vacio: ',this.nombre)
-    /* const nombreValue = document.querySelector('#nombre');
+    console.log('viaje vacio: ',this.newViaje)
+    const nombreValue = document.querySelector('#nombre');
     const nombreString = nombreValue.toString();
 
     const sectorValue = document.querySelector('#sector');
@@ -64,17 +64,19 @@ export class ComponenteDosComponent implements OnInit {
     const precioInt = parseInt(precioString);
 
     const descripcionValue = document.querySelector('#descripcion');
-    const descripcionString = descripcionValue.toString() */
+    const descripcionString = descripcionValue.toString() 
 
-    /* this.nowViaje = {
+    this.newViaje = {
       nombre: nombreString,
       precio: precioInt,
       patente: patenteString,
       sector: sectorString,
       descripcion: descripcionString
-    } */
+    }
 
-    /* @ViewChild('nombre') referencia : ElementRef; */
+    console.log('viaje lleno', this.newViaje);
+
+    /* @ViewChild('nombre') referencia : ElementRef;
 
     console.log('Nombre: ', this.nombre)
     console.log('sector: ', this.sector)
