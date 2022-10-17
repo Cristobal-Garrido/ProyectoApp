@@ -50,28 +50,23 @@ export class ComponenteDosComponent implements OnInit {
 
   prueba() {
     console.log('viaje vacio: ',this.newViaje)
-    const nombreValue = document.querySelector('#nombre');
-    const nombreString = nombreValue.toString();
+    const nombreValue = document.querySelector('#nombre') as HTMLInputElement;
+    console.log(nombreValue.value)
 
-    const sectorValue = document.querySelector('#sector');
-    const sectorString = sectorValue.toString();
+    const sectorValue = document.querySelector('#sector') as HTMLInputElement;
 
-    const patenteValue = document.querySelector('#patente');
-    const patenteString = patenteValue.toString();
+    const patenteValue = document.querySelector('#patente') as HTMLInputElement;
 
-    const precioValue = document.querySelector('#precio');
-    const precioString = precioValue.toString();
-    const precioInt = parseInt(precioString);
+    const precioValue = document.querySelector('#precio') as HTMLInputElement;
 
-    const descripcionValue = document.querySelector('#descripcion');
-    const descripcionString = descripcionValue.toString() 
+    const descripcionValue = document.querySelector('#descripcion') as HTMLInputElement;
 
     this.newViaje = {
-      nombre: nombreString,
-      precio: precioInt,
-      patente: patenteString,
-      sector: sectorString,
-      descripcion: descripcionString
+      nombre: nombreValue.value,
+      precio: parseInt(precioValue.value),
+      patente: patenteValue.value,
+      sector: sectorValue.value,
+      descripcion: descripcionValue.value
     }
 
     console.log('viaje lleno', this.newViaje);
