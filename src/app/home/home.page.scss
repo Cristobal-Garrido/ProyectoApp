@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Josefin+Sans:wght@300&family=Qwitcher+Grypen&family=Roboto:wght@100&display=swap');
 #container {
   text-align: center;
 
@@ -9,6 +10,10 @@
 }
 
 .title {
+  color: #fabc2b;
+  font-size: 10px;
+  font-weight: bolder;
+  font-family: 'Roboto', sans-serif;
   font-weight: bold;
   text-align: center;
 }
@@ -32,7 +37,7 @@
 }
 
 //@at
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Josefin+Sans:wght@300&family=Qwitcher+Grypen&family=Roboto:wght@100&display=swap');
+
 
 #container {
     display: flex;
@@ -281,10 +286,16 @@ ion-router-link {
 }
 
 .jojo {
-  margin-top: 160px;
+  margin-top: 180px;
+}
+
+.jojo2 {
+  margin-top: 100px;
 }
 
 .vtitle {
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
   text-align: center;
   font-weight: 600;
 }
@@ -305,10 +316,28 @@ ion-router-link {
     height: 100%;
 }
 
+.viajes-contenedor {
+  padding: 10px;
+}
+
+.viajeTitulo {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.viajeTexto {
+  font-weight: 600;
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+}
+
 //ION
 
 ion-item {
-  background-color: #8c8c8c;
+  --color: black;
 }
 
 ion-header {
@@ -325,4 +354,12 @@ in-segment {
 
 segment-button-has-icon-only {
   background-color: #e3ad2e;
+}
+
+.item .item-content {
+  background-color: transparent !important;
+}
+
+.item-background-color{
+  --ion-item-background:#015f01d5;
 }

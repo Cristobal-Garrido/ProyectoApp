@@ -35,9 +35,12 @@
 }
 
 .title {
-  font-size: xx-large;
+  color: #ffffff;
+  font-size: 10px;
   font-weight: bolder;
-  font-family: 'Josefin Sans', sans-serif;;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
+  text-align: center;
 }
 
 .img-container {
@@ -210,4 +213,9 @@ ion-router-link {
     /* position: absolute; */
    /*  left: 14%;
     top: 90%; */
+}
+
+.er {
+  color: #ff465a;
+  font-weight: bolder;
 }

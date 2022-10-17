@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';//para enviar informacion a otra pagina
-import { ToastController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiAlumnosService } from '../servicios/api-alumnos.service';
@@ -53,7 +53,8 @@ export class LoginPage implements OnInit {
     private router: Router, 
     public toastController: ToastController,
     public _servicio: ApiAlumnosService,
-    public http: HttpClient
+    public http: HttpClient,
+    public alertController: AlertController
     ) {
 
  }
@@ -67,11 +68,23 @@ export class LoginPage implements OnInit {
     .then(data => data.json())
   }
 
+  async presentAlert(head, msg, btn) {
+    const alert = await this.alertController.create({
+      header: head,
+      message: msg,
+      buttons: [btn],
+    });
+    await alert.present()
+    let result = await alert.onDidDismiss();
+    console.log(result);
+  }
+
   async irHome() {
    const input = document.querySelector('#oeoe') as HTMLInputElement;
    const { value } = input;
    const password = document.querySelector('.pass-oeoe') as HTMLInputElement;
    const passwordValue = password.value;
+   const er = document.getElementById('er') as HTMLInputElement;
     const z = await this.fetchWea()
     console.log('a: ',z)
 
@@ -92,14 +105,26 @@ export class LoginPage implements OnInit {
     return;
    }
    if(alumno.length == 0) {
+    this.presentAlert('Error', 'Usuario y/o contraseña incorrecto', 'OK')
+    /* er.innerText = `Usuario y/o contraseña incorrectos` */
+    setTimeout(function(){
+      console.log("Executed after 1 second");
+      er.innerText = ``
+      }, 5000);
     return
    }
-   this.router.navigate(['/home']);
+   this.router.navigate(['/home/uno']);
 
    setTimeout( () => {
     const secondQuery = document.querySelector('.oeoe-title') as HTMLInputElement;
-    /* secondQuery.innerText = `¡Bienvenid@ ! ${value}`; */
-   }, 0)
+    console.log('nombre alumno: ',z)
+    const alumno2 = z.alumnos.map(a => {
+      if(a.username == value && a.password == passwordValue){
+        secondQuery.innerText = `¡Bienvenid@ ! ${a.nombre}`;
+       return a;
+      } 
+    })
+   }, 1)
   }
 
   iniciar(){
