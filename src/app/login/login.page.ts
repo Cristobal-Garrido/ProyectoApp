@@ -3,6 +3,8 @@ import { Router, NavigationExtras } from '@angular/router';//para enviar informa
 import { ToastController } from '@ionic/angular';
 
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ApiAlumnosService } from '../servicios/api-alumnos.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,15 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginPage implements OnInit {
 
+  usernames = [];
+
   ngOnInit() {
+    this.http.get<any>('https://nancyb3a.github.io/Test/usuarios_PGY4121_09.json')
+    .subscribe(res => {
+      console.log('res', res);
+      console.log('alumnos: ',res.alumnos[0])
+      this.usernames = res
+    })
   }
 
   errors = [
@@ -39,7 +49,12 @@ export class LoginPage implements OnInit {
   }
     field: string = "";//guardar campo faltante    
                     //instanciar imports
-  constructor(private router: Router, public toastController: ToastController) {
+  constructor(
+    private router: Router, 
+    public toastController: ToastController,
+    public _servicio: ApiAlumnosService,
+    public http: HttpClient
+    ) {
 
  }
  recuperarPass() {
