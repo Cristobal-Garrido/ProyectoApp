@@ -29,7 +29,7 @@ import { SQLite } from '@awesome-cordova-plugins/sqlite/ngx';
     HttpErrorResponse,
     HttpClient */
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },SQLite],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },SQLite, Geolocation],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

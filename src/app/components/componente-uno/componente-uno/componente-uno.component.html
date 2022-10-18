@@ -65,9 +65,6 @@
     </div> -->
 
     <div class="ion-padding">
-        <ion-button (click)="obtenerCoordenadasActuales()" expand="round">
-            Obtener Localizaci&oacute;n
-        </ion-button>
         <ion-list>
             <ion-list-header>
                 <ion-label>Coordenadas de Localizaci&oacute;n</ion-label>
@@ -76,14 +73,17 @@
                 <ion-label>
                     Latitud
                 </ion-label>
-                <ion-badge name="lat" color="dark" slot="end">{{latitude}}</ion-badge>
+                <ion-badge name="lat" color="danger" slot="end">{{latitude}}</ion-badge>
             </ion-item>
             <ion-item>
                 <ion-label>
                     Longitud
                 </ion-label>
-                <ion-badge name="lon" color="dark" slot="end">{{longitude}}</ion-badge>
+                <ion-badge name="lon" color="danger" slot="end">{{longitude}}</ion-badge>
             </ion-item>
         </ion-list>
-
+        <ion-button (click)="obtenerCoordenadasActuales()" expand="round">
+            Obtener Localizaci&oacute;n
+        </ion-button>
+    </div>
 </ion-content>
