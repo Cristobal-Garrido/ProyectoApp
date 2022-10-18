@@ -1,29 +1,47 @@
 <ion-content>
-    
-<div class="jojo">
-  <h1 class="vtitle">Publicar un Viaje Nuevo</h1>
-  <ion-item>
+  <div class="jojo">
+    <h1 class="vtitle">Publicar un Viaje Nuevo</h1>
+    <ion-item>
       <ion-label position="floating">Nombre conductor</ion-label>
       <ion-input type="text" [(ngModel)]="nombreConductor"></ion-input>
-  </ion-item>
+    </ion-item>
 
-  <ion-title size="large" style="font-size: 16px;" class="title oeoe-title"></ion-title>
-  
-  <ion-item>
+    <ion-title
+      size="large"
+      style="font-size: 16px"
+      class="title oeoe-title"
+    ></ion-title>
+
+    <ion-item>
       <ion-label position="floating">Descripción</ion-label>
-      <ion-input class="iinput" type="text" [(ngModel)]="textoViaje"></ion-input>
-  </ion-item>
+      <ion-input
+        class="iinput"
+        type="text"
+        [(ngModel)]="textoViaje"
+      ></ion-input>
+    </ion-item>
 
-  <ion-button shape="block" (click)="guardar()">Publicar Viaje</ion-button>
+    <ion-button shape="block" (click)="guardar()">Publicar Viaje</ion-button>
+  </div>
 
-</div>
-
-<!-- <div class="wrap-input">
-  <input id="oeoe" class="input" type="text" formControlName="name" name="user-name" placeholder="Nombre de conductor" spellcheck="false">
-</div>
-
-<div class="wrap-input">
-  <input id="oeoe" class="input" type="text" formControlName="desc" name="desc" placeholder="Descripción" spellcheck="false">
-</div> -->
-
+  <div class="ion-padding">
+    <ion-button (click)="obtenerCoordenadasActuales()" expand="round">
+      Obtener Localizaci&oacute;n
+    </ion-button>
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Coordenadas de Localizaci&oacute;n</ion-label>
+      </ion-list-header>
+      <ion-item>
+        <ion-label> Latitud </ion-label>
+        <ion-badge name="lat" color="dark" slot="end">{{ latitude }}</ion-badge>
+      </ion-item>
+      <ion-item>
+        <ion-label> Longitud </ion-label>
+        <ion-badge name="lon" color="dark" slot="end">{{
+          longitude
+        }}</ion-badge>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

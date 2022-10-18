@@ -1,7 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  NgZone  } from '@angular/core';
 import { Viaje } from 'src/app/clases/viaje';
 import { ServiciobdService } from 'src/app/servicios/serviciobd.service';
 import { NavigationExtras, Router } from '@angular/router';
+//ionic cordova plugin add cordova-plugin-geolocation
+// o
+//npm install cordova-plugin-geolocation
+
+//npm install @ionic-native/geolocation
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @Component({
   selector: 'app-componente-uno',
@@ -9,10 +15,16 @@ import { NavigationExtras, Router } from '@angular/router';
   styleUrls: ['../../../home/home.page.scss'],
 })
 export class ComponenteUnoComponent implements OnInit {
+  latitude: any = 0; //latitud
+  longitude: any = 0; //longitud
 
   viajes: Viaje[];
 
-  constructor(private servicioBD:ServiciobdService, private router:Router) { }
+  constructor(
+    private servicioBD:ServiciobdService,
+    private router:Router,
+   /*  public geolocation: Geolocation */
+    ) { }
 
   ngOnInit(){
     this.servicioBD.dbState().subscribe((res)=>{
@@ -22,7 +34,23 @@ export class ComponenteUnoComponent implements OnInit {
         })
       }
     })
+
   }
+
+  options = {
+    timeout: 10000, 
+    enableHighAccuracy: true, 
+    maximumAge: 3600
+};
+
+/* obtenerCoordenadasActuales(){
+  this.geolocation.getCurrentPosition().then((resp) => {
+    this.latitude = resp.coords.latitude;
+    this.longitude = resp.coords.longitude;
+  }).catch((error) => {
+    console.log('Error obteniendo posición',error);
+  })
+} */
 
   getItem($event) {
     const valor = $event.target.value;
