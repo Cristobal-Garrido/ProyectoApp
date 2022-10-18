@@ -5,7 +5,7 @@ import { NavigationExtras, Router } from '@angular/router';
 //ionic cordova plugin add cordova-plugin-geolocation
 // o
 //npm install cordova-plugin-geolocation
-
+//npm install @ionic-native/native-geocoder
 //npm install @ionic-native/geolocation
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 
