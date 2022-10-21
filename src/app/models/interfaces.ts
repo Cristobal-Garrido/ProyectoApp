@@ -7,4 +7,5 @@ export interface Viaje {
     patente: string;
     sector: string;
     descripcion: string;
+    id: string
 }

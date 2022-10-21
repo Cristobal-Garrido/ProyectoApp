@@ -14,6 +14,7 @@
       <ion-input class="iinput" type="text" [(ngModel)]="textoViaje"></ion-input>
   </ion-item>
 
+  <ion-button color="success" style="font-weight: 600;" shape="block" (click)="verificar()">verificar</ion-button>
 
     <ion-item>
       <ion-label position="floating" >Nombre:</ion-label>
@@ -22,26 +23,26 @@
     <p id="p"></p>
   
     <ion-item>
-      <ion-label position="stacked" >Sector:</ion-label>
+      <ion-label position="floating" >Sector:</ion-label>
       <ion-input [(ngModel)]="sector" name="sector" id="sector" type="text"></ion-input>
     </ion-item>
   
     <ion-item>
-      <ion-label position="stacked" >Patente:</ion-label>
+      <ion-label position="floating" >Patente:</ion-label>
       <ion-input [(ngModel)]="patente" id="patente"></ion-input>
     </ion-item>
   
     <ion-item>
-      <ion-label position="stacked" >Precio:</ion-label>
+      <ion-label position="floating" >Precio:</ion-label>
       <ion-input type="number" [(ngModel)]="precio" id="precio"></ion-input>
     </ion-item>
   
     <ion-item>
-      <ion-label position="stacked" >Descripcion:</ion-label>
+      <ion-label position="floating" >Descripcion:</ion-label>
       <ion-input [(ngModel)]="descripcion" id="descripcion"></ion-input>
     </ion-item>
 
-    <ion-button shape="block" (click)="prueba()">Publicar Viaje</ion-button>
+    <ion-button shape="block" (click)="save()">Publicar Viaje</ion-button>
 
 
   

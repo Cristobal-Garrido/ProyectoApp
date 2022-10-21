@@ -279,6 +279,8 @@ ion-router-link {
 
 .jojo2 {
     margin-top: 100px;
+  margin-top: 160px;
+  padding: 0 10px;
 }
 
 .vtitle {
@@ -304,9 +306,62 @@ ion-router-link {
     height: 100%;
 }
 
+
 .viajes-contenedor {
     padding: 10px;
 }
+
+.viaje-card {
+  margin: 10px 0;
+  font-family: 'Roboto', sans-serif;
+  padding: 2px;
+  border-radius: 10px;
+  background-color: rgba(0, 2, 7, 0.4);
+  color: white;
+}
+
+.titulo-viaje {
+  text-align: center;
+  font-weight: 900;
+}
+
+.card-item {
+  padding: 5px;
+  font-weight: 600;
+}
+
+.card-avatar {
+  display: flex;
+  justify-content: center;
+}
+
+.precio-div {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-size: 25px;
+}
+
+.card-precio {
+  color: #2fdf75;
+  font-size: 25px;
+}
+
+.precio-item {
+  display: flex;
+  align-items: center;
+  font-weight: 900;
+}
+
+.precio-label {
+  font-weight: 600;
+}
+
+.opc {
+  display: flex;
+}
+
+//ION
 
 .viajeTitulo {
     font-weight: 600;

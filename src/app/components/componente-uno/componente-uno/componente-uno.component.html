@@ -22,6 +22,43 @@
                   <h2>{{ v.conductor }}</h2>
                   <p>{{v.texto}}</p>
               </ion-label>
+    <ion-button color="success" style="font-weight: 600;" shape="block" (click)="verificar()">verificar</ion-button>
+
+    <div class="viaje-card" *ngFor="let viaje of viajes">
+      <h5 class="card-item titulo-viaje">Conductor: {{viaje.nombre}}</h5>
+      <div class="card-avatar">
+        <ion-avatar slot="start">
+          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        </ion-avatar>
+      </div>
+      <div class="card-item">Sector: {{viaje.sector}}</div>
+      <div class="card-item">Descripción: {{viaje.descripcion}}</div>
+      <div class="card-item">Patente: {{viaje.patente}}</div>
+      <div class="precio-label card-item">Precio: </div>
+      <div class="precio-div">
+        <div class="precio-item">$</div>
+        <div class="card-item card-precio">{{viaje.precio}}</div>
+        <div class="precio-item">CLP</div>
+      </div>
+      <ion-button style="font-weight: 600;" shape="block">Tomar Viaje</ion-button>
+      <div class="opc">
+        <ion-button color="success" style="font-weight: 600;" shape="block" (click)=" newViaje = viaje ">Editar</ion-button>
+        <ion-button color="danger" style="font-weight: 600; " shape="block" (click)="deleteItem(viaje)">Eliminar</ion-button>
+      </div>
+    </div>
+    <!-- <ion-searchbar (ionInput)="getItem($event)"></ion-searchbar> -->
+    <!-- <ion-list>
+      <ion-item-sliding *ngFor="let v of viajes">
+        <ion-item>
+          <ion-item>
+            <ion-avatar item-start>
+              <img src="assets/icon/favicon.png">
+            </ion-avatar>
+            <ion-label class="data">
+              <h2 class="data">{{v.conductor}}</h2>
+              <p class="data" style="word-wrap: break-word; white-space: normal;">{{v.texto}}</p>
+            </ion-label>
+>>>>>>> f54993f (x)
           </ion-item>
 
 
@@ -46,6 +83,7 @@
             <p class="data" style="word-wrap: break-word; white-space: normal;">{{v.texto}}</p>
           </ion-label>
         </ion-item>
+<<<<<<< HEAD
       </ion-item>
       <ion-item-options side="end">
         <ion-item-option (click)="editar(v)">
@@ -85,5 +123,21 @@
               <ion-badge name="lon" color="primary" slot="end">{{longitude}}</ion-badge>
           </ion-item>
       </ion-list>
+        <ion-item-options side="end">
+          <ion-item-option (click)="editar(v)">
+            <ion-icon name="create" ></ion-icon> Editar
+          </ion-item-option>
+          <ion-item-option color="danger" (click)="eliminar(v)">
+            <ion-icon name="trash"></ion-icon> Eliminar
+          </ion-item-option>
+        </ion-item-options>      
+      </ion-item-sliding>
+    </ion-list>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button [routerLink]="['/agregar']">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    </div>
   </div>
 </ion-content>

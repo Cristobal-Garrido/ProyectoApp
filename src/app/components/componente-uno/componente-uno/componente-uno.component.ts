@@ -2,12 +2,10 @@ import { Component, OnInit,  NgZone  } from '@angular/core';
 import { Viaje } from 'src/app/clases/viaje';
 import { ServiciobdService } from 'src/app/servicios/serviciobd.service';
 import { NavigationExtras, Router } from '@angular/router';
-//ionic cordova plugin add cordova-plugin-geolocation
-// o
-//npm install cordova-plugin-geolocation
-//npm install @ionic-native/native-geocoder
-//npm install @ionic-native/geolocation
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { LoadingController } from '@ionic/angular';
+import { Viaje } from 'src/app/models/interfaces';
+import { FireBaseBdService } from 'src/app/servicios/fire-base-bd.service';
 
 @Component({
   selector: 'app-componente-uno',
@@ -19,10 +17,6 @@ export class ComponenteUnoComponent implements OnInit {
   latitude: any = 0; //latitud
   longitude: any = 0; //longitud
 
-  viajes: Viaje[];
-
-  constructor(private servicioBD:ServiciobdService,
-    private router:Router, private geolocation: Geolocation) {}
 
   options = {
       timeout: 10000, 
@@ -30,8 +24,54 @@ export class ComponenteUnoComponent implements OnInit {
       maximumAge: 3600
   };
 
+  viajes: Viaje[] = [];
+
+  loading: any;
+
+  private path = 'home/uno'
+
+  constructor(
+    private router:Router,
+    public baseDatosService: FireBaseBdService,
+    public loadingController: LoadingController,
+    private geolocation: Geolocation
+    ) { }
+
   ngOnInit(): void {
-      
+    console.log('this.viajes: ',this.viajes)
+    this.presentLoading();
+    this.getItems();
+  }
+
+  getItems() {
+    this.presentLoading();
+    const enlace = 'Viajes';
+    this.baseDatosService.getCollectionChanges<Viaje>(enlace).subscribe( res => {
+      this.viajes = res;
+    });
+  }
+
+  deleteItem(viaje: Viaje) {
+    const enlace = 'Viajes';
+    this.baseDatosService.deleteDocument(enlace, viaje.id);
+    
+  }
+
+  async presentLoading() {
+    this.loading = await this.loadingController.create({
+      message: 'Cargando Viajes',
+      duration: 2000
+    })
+    await this.loading.present();
+  }
+
+  editItem() {
+    this.baseDatosService.validateEdit();
+  }
+
+  verificar() {
+    this.baseDatosService.verificarbtn();
+
   }
 
 /*   ngOnInit(){
@@ -79,4 +119,3 @@ export class ComponenteUnoComponent implements OnInit {
 }
 =======
 } */
->>>>>>> dbe7d4a (Se agrega base de datos firebase incompleta)

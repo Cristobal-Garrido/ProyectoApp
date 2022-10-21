@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Viaje } from 'src/app/models/interfaces';
 import { FormsModule } from '@angular/forms';
 import { ElementRef } from '@angular/core';
+import { FireBaseBdService } from 'src/app/servicios/fire-base-bd.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-componente-dos',
@@ -14,10 +16,11 @@ export class ComponenteDosComponent implements OnInit {
   //Atributos por defecto
   newViaje: Viaje = {
     nombre: '',
-    precio: null,
+    precio: 1000,
     patente: '',
     sector: '',
-    descripcion: ''
+    descripcion: '',
+    id: ''
   }
 
   nowViaje: any = {
@@ -36,7 +39,11 @@ export class ComponenteDosComponent implements OnInit {
 
   public fullname: string = '';
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    public database: FireBaseBdService,
+    public alertController: AlertController
+    ) { }
 
   @ViewChild('nombre') referencia : ElementRef;
 
@@ -44,8 +51,43 @@ export class ComponenteDosComponent implements OnInit {
   ngOnInit() {
   }
 
+  verificar() {
+    this.database.verificarbtn();
+  }
+
   save() {
-    console.log('Fullname', this.fullname)
+
+    console.log('viaje vacio: ',this.newViaje)
+    const nombreValue = document.querySelector('#nombre') as HTMLInputElement;
+    console.log(nombreValue.value)
+
+    const sectorValue = document.querySelector('#sector') as HTMLInputElement;
+
+    const patenteValue = document.querySelector('#patente') as HTMLInputElement;
+
+    const precioValue = document.querySelector('#precio') as HTMLInputElement;
+
+    const descripcionValue = document.querySelector('#descripcion') as HTMLInputElement;
+
+    this.newViaje = {
+      nombre: nombreValue.value,
+      precio: parseInt(precioValue.value),
+      patente: patenteValue.value,
+      sector: sectorValue.value,
+      descripcion: descripcionValue.value,
+      id: ''
+    }
+
+    console.log();
+    const data = this.newViaje;
+    const enlace = 'Viajes';
+    data.id = this.database.createId()
+    this.database.createDocument<Viaje>(data, enlace, data.id).then( (_) => {
+      console.log('Guardado con exito')
+      this.presentAlert('Aviso', 'Viaje Guardado con exito.', 'OK')
+    });
+    console.log('data: ',data);
+
   }
 
   prueba() {
@@ -66,7 +108,8 @@ export class ComponenteDosComponent implements OnInit {
       precio: parseInt(precioValue.value),
       patente: patenteValue.value,
       sector: sectorValue.value,
-      descripcion: descripcionValue.value
+      descripcion: descripcionValue.value,
+      id: ''
     }
 
     console.log('viaje lleno', this.newViaje);
@@ -91,5 +134,16 @@ export class ComponenteDosComponent implements OnInit {
     this.newViaje.nombre = event.target.value;
     console.log('Event: ',this.newViaje.nombre)
   } */
+
+  async presentAlert(head, msg, btn) {
+    const alert = await this.alertController.create({
+      header: head,
+      message: msg,
+      buttons: [btn],
+    });
+    await alert.present()
+    let result = await alert.onDidDismiss();
+    console.log(result);
+  }
 
 }
