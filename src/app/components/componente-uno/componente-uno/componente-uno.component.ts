@@ -1,5 +1,4 @@
 import { Component, OnInit,  NgZone  } from '@angular/core';
-import { Viaje } from 'src/app/clases/viaje';
 import { ServiciobdService } from 'src/app/servicios/serviciobd.service';
 import { NavigationExtras, Router } from '@angular/router';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
@@ -74,6 +73,16 @@ export class ComponenteUnoComponent implements OnInit {
 
   }
 
+  obtenerCoordenadasActuales(){
+    this.geolocation.getCurrentPosition().then((resp) => {
+      this.latitude = resp.coords.latitude;
+      this.longitude = resp.coords.longitude;
+    }).catch((error) => {
+      console.log('Error obteniendo posición',error);
+    })
+  }
+}
+
 /*   ngOnInit(){
     this.servicioBD.dbState().subscribe((res)=>{
       if(res){
@@ -100,7 +109,7 @@ export class ComponenteUnoComponent implements OnInit {
       }
     }
     /* this.router.navigate(['/modificar'],navigationExtras); */
-  }
+  
 
   /* eliminar(item) {
     this.servicioBD.deleteViaje(item.id);

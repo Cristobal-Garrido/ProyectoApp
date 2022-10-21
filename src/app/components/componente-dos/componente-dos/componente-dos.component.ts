@@ -61,7 +61,7 @@ export class ComponenteDosComponent implements OnInit {
     const nombreValue = document.querySelector('#nombre') as HTMLInputElement;
     console.log(nombreValue.value)
 
-    const sectorValue = document.querySelector('#sector') as HTMLInputElement;
+    let sectorValue = document.querySelector('#sector') as HTMLInputElement;
 
     const patenteValue = document.querySelector('#patente') as HTMLInputElement;
 
@@ -87,6 +87,13 @@ export class ComponenteDosComponent implements OnInit {
       this.presentAlert('Aviso', 'Viaje Guardado con exito.', 'OK')
     });
     console.log('data: ',data);
+
+    nombreValue.value = '';
+    patenteValue.value = '';
+    precioValue.value = '';
+    descripcionValue.value = '';
+    precioValue.value = null;
+    sectorValue.value = '';
 
   }
 
