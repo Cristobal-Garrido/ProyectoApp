@@ -1,3 +1,85 @@
-<p>
-  edit works!
-</p>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+      <ion-title>
+          
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="jojo2">
+    <ion-button (click)="volver()">Volver</ion-button>
+    <div class="edit-title">
+      <h1 class="vtitle">Editar viaje</h1>
+    </div>
+    <!-- <ion-button (click)="ejecutarMostrarViaje()">Mostrar viaje capturado</ion-button> -->
+
+    <div class="viaje-card">
+
+      <div class="viajes-contenedor">
+
+        <div class="card-avatar">
+          <ion-avatar slot="start">
+            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          </ion-avatar>
+        </div>
+
+        <label class="lbl" for="sectorUp">ID:</label>
+        <div class="wrap-input-disabled">
+          <input id="idUp" class="input" type="text" formControlName="name" name="idUp" placeholder="ID" spellcheck="false" disabled="true">
+        </div>
+  
+        <label class="lbl" for="nombreUp">Nombre:</label>
+        <div class="wrap-input">
+          <input id="nombreUp" class="input" type="text" formControlName="name" name="nombreUp" placeholder="" spellcheck="false">
+        </div>
+  
+        <label class="lbl" for="sectorUp">Sector:</label>
+        <div class="wrap-input">
+          <input id="sectorUp" class="input" type="text" formControlName="name" name="sectorUp" placeholder="" spellcheck="false">
+        </div>
+  
+        <label class="lbl" for="patenteUp">Patente</label>
+        <div class="wrap-input">
+          <input id="patenteUp" class="input" type="text" formControlName="name" name="user-name" placeholder="" spellcheck="false">
+        </div>
+  
+        <label class="lbl" for="precioUp">Precio:</label>
+        <div class="wrap-input">
+          <input id="precioUp" class="input" type="number" formControlName="name" name="user-name" placeholder="" spellcheck="false">
+        </div>
+  
+        <label class="lbl" for="descripcionUp">Descripcion:</label>
+        <div class="wrap-input">
+          <input id="descripcionUp" class="input" type="text" formControlName="name" name="user-name" placeholder="" spellcheck="false">
+        </div>
+  
+        <!-- <h5 class="card-item titulo-viaje">Conductor: {{viajeCapturado.nombre}}</h5>
+        <div class="card-avatar">
+          <ion-avatar slot="start">
+            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          </ion-avatar>
+        </div>
+        <div class="card-item">Sector: {{viajeCapturado.sector}}</div>
+        <div class="card-item">Descripción: {{viajeCapturado.descripcion}}</div>
+        <div class="card-item">Patente: {{viajeCapturado.patente}}</div>
+        <div class="card-item">Id: {{viajeCapturado.id}}</div>
+        <div class="precio-label card-item">Precio: </div>
+        <div class="precio-div">
+          <div class="precio-item">$</div>
+          <div class="card-item card-precio">{{viajeCapturado.precio}}</div>
+          <div class="precio-item">CLP</div>
+        </div> -->
+        <div class="pad"></div>
+        <ion-button (click)="updateViaje()" style="font-weight: 600;" shape="block">Editar</ion-button>
+
+      </div>
+
+
+    </div>
+
+</div>
+
+
+
+</ion-content>

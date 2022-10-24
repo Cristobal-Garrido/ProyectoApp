@@ -5,6 +5,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { LoadingController } from '@ionic/angular';
 import { Viaje } from 'src/app/models/interfaces';
 import { FireBaseBdService } from 'src/app/servicios/fire-base-bd.service';
+import { EditComponent } from '../../edit/edit.component';
 
 @Component({
   selector: 'app-componente-uno',
@@ -15,6 +16,7 @@ export class ComponenteUnoComponent implements OnInit {
 
   latitude: any = 0; //latitud
   longitude: any = 0; //longitud
+  viajeCapturadoUno: any;
 
 
   options = {
@@ -33,7 +35,7 @@ export class ComponenteUnoComponent implements OnInit {
     private router:Router,
     public baseDatosService: FireBaseBdService,
     public loadingController: LoadingController,
-    private geolocation: Geolocation
+    private geolocation: Geolocation,
     ) { }
 
   ngOnInit(): void {
@@ -41,6 +43,7 @@ export class ComponenteUnoComponent implements OnInit {
     this.presentLoading();
     this.getItems();
   }
+
 
   getItems() {
     this.presentLoading();
@@ -81,50 +84,21 @@ export class ComponenteUnoComponent implements OnInit {
       console.log('Error obteniendo posición',error);
     })
   }
+
+  async edit(viaje) {
+    this.router.navigate(['/home/edit']);
+    this.recibirViajeBd(viaje);
+    /* this.router.navigate(['/home/uno']); */
+  }
+
+
+  recibirViajeBd(viaje) {
+    this.baseDatosService.viajeEdit = viaje;
+  }
+
+  mostrarViajeCapturado() {
+    console.log('viajeEdit: ',this.baseDatosService.viajeEdit)
+  }
+
 }
 
-/*   ngOnInit(){
-    this.servicioBD.dbState().subscribe((res)=>{
-      if(res){
-        this.servicioBD.fetchViajes().subscribe(item=>{
-          this.viajes=item;
-        })
-      }
-    })
-  }
-
-  getItem($event) {
-    const valor = $event.target.value;
-    console.log('valor del control: ' + valor);
-    this.servicioBD.presentToast(valor);
-
-  }
-
-  editar(item) {
-    let navigationExtras: NavigationExtras = {
-      state : {
-        idEnviado : item.id,
-        tituloEnviado : item.conductor,
-        textoEnviado : item.texto
-      }
-    }
-    /* this.router.navigate(['/modificar'],navigationExtras); */
-  
-
-  /* eliminar(item) {
-    this.servicioBD.deleteViaje(item.id);
-    this.servicioBD.presentToast("Viaje Eliminado"); */
-/*   }
-
-<<<<<<< HEAD
-  obtenerCoordenadasActuales(){
-    this.geolocation.getCurrentPosition().then((resp) => {
-      this.latitude = resp.coords.latitude;
-      this.longitude = resp.coords.longitude;
-    }).catch((error) => {
-      console.log('Error obteniendo posición',error);
-    })
-  }
-}
-=======
-} */

@@ -243,6 +243,10 @@ ion-router-link {
     align-content: space-between;
 }
 
+.pad {
+    height: 20px;
+}
+
 .nt-container {
     display: flex;
     flex-direction: column;
@@ -275,11 +279,14 @@ ion-router-link {
 
 .jojo {
     margin-top: 180px;
+    padding: 0 10px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .jojo2 {
     margin-top: 100px;
-  padding: 0 10px;
+    padding: 0 10px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .vtitle {
@@ -287,6 +294,11 @@ ion-router-link {
     font-family: 'Roboto', sans-serif;
     text-align: center;
     font-weight: 600;
+}
+
+.edit-title {
+    display: flex;
+    justify-content: center;
 }
 
 .data {
@@ -303,6 +315,58 @@ ion-router-link {
 
 .logo {
     height: 100%;
+}
+
+.wrap-input {
+    padding: 0 10px;
+  position: relative;
+  background-color: rgba(255, 255, 255, .7);
+  border-radius: 20px;
+  margin-bottom: 5px;
+  box-shadow: 0 10px 30px 0px rgba(1, 2, 2, 0.12);
+}
+
+.wrap-input-disabled {
+    padding: 0 10px;
+  position: relative;
+  background-color: rgba(255, 255, 255, .4);
+  border-radius: 20px;
+  margin-bottom: 5px;
+  box-shadow: 0 10px 30px 0px rgba(1, 2, 2, 0.12);
+}
+
+.input:disabled {
+    padding: 12px;
+    color: black ;
+    display: block;
+    width: 100%;
+    background: transparent;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bolder;
+    line-height: 1.2;
+    border: none;
+    outline: #e2ac2e;
+}
+
+.input {
+  padding: 12px;
+  color: black;
+  display: block;
+  width: 100%;
+  background: transparent;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bolder;
+  line-height: 1.2;
+  border: none;
+  outline: #fabc2b;
+} 
+
+.lbl {
+    font-weight: 900;
 }
 
 
@@ -404,4 +468,15 @@ segment-button-has-icon-only {
 
 .item-background-color {
     --ion-item-background: #015f01d5;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
 }

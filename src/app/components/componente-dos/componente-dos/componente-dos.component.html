@@ -7,62 +7,86 @@
 
   <!-- <ion-button color="success" style="font-weight: 600;" shape="block" (click)="verificar()">verificar</ion-button> -->
 
-    <ion-item>
-      <ion-label position="floating" >Nombre:</ion-label>
-      <ion-input type="text" [(ngModel)]="nombre" id="nombre"></ion-input>
-    </ion-item>
-    <p id="p"></p>
+  <div class="viaje-card">
+    <div class="viajes-contenedor">
+
+      <!-- <ion-item>
+        <ion-label position="floating" >Nombre:</ion-label>
+        <ion-input type="text" [(ngModel)]="nombre" id="nombre"></ion-input>
+      </ion-item> -->
+
+      <label class="lbl" for="nombreUp">Nombre:</label>
+        <div class="wrap-input">
+          <input id="nombre" class="input" type="text" formControlName="name" name="nombre" placeholder="" spellcheck="false">
+        </div>
+    
+      <!-- <ion-item>
+        <ion-label position="floating" >Sector:</ion-label>
+        <ion-input [(ngModel)]="sector" name="sector" id="sector" type="text"></ion-input>
+      </ion-item> -->
+
+      <label class="lbl" for="sector">Sector:</label>
+        <div class="wrap-input">
+          <input id="sector" class="input" type="text" formControlName="name" name="sector" placeholder="" spellcheck="false">
+        </div>
+    
+      <!-- <ion-item>
+        <ion-label position="floating" >Patente:</ion-label>
+        <ion-input [(ngModel)]="patente" id="patente"></ion-input>
+      </ion-item> -->
+
+      <label class="lbl" for="patente">Patente:</label>
+        <div class="wrap-input">
+          <input id="patente" class="input" type="text" formControlName="name" name="patente" placeholder="" spellcheck="false">
+        </div>
+    
+      <!-- <ion-item>
+        <ion-label position="floating" >Precio:</ion-label>
+        <ion-input type="number" [(ngModel)]="precio" id="precio"></ion-input>
+      </ion-item> -->
+
+      <label class="lbl" for="precio">Precio:</label>
+        <div class="wrap-input">
+          <input id="precio" class="input" type="text" formControlName="name" name="precio" placeholder="" spellcheck="false">
+        </div>
+    
+      <!-- <ion-item>
+        <ion-label position="floating" >Descripcion:</ion-label>
+        <ion-input [(ngModel)]="descripcion" id="descripcion"></ion-input>
+      </ion-item> -->
+
+      <label class="lbl" for="descripcion">Descripción:</label>
+        <div class="wrap-input">
+          <input id="descripcion" class="input" type="text" formControlName="name" name="descripcion" placeholder="" spellcheck="false">
+        </div>
+
+        <div class="pad"></div>
   
-    <ion-item>
-      <ion-label position="floating" >Sector:</ion-label>
-      <ion-input [(ngModel)]="sector" name="sector" id="sector" type="text"></ion-input>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label position="floating" >Patente:</ion-label>
-      <ion-input [(ngModel)]="patente" id="patente"></ion-input>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label position="floating" >Precio:</ion-label>
-      <ion-input type="number" [(ngModel)]="precio" id="precio"></ion-input>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label position="floating" >Descripcion:</ion-label>
-      <ion-input [(ngModel)]="descripcion" id="descripcion"></ion-input>
-    </ion-item>
+      <ion-button shape="block" (click)="save()">Publicar Viaje</ion-button>
 
-    <ion-button shape="block" (click)="save()">Publicar Viaje</ion-button>
-
-
-  
-
-  <!-- nombre: string;
-    precio: number;
-    patente: string;
-    sector: string;
-    descripcion: string; -->
-  <!-- <ion-item>
-    <ion-buttons slot="end">
-
-      <ion-label>Guardar </ion-label>
-      <ion-button click="save()" >
-        <ion-icon slot="icon-only" name="save-sharp"></ion-icon>
-      </ion-button>
-
-    </ion-buttons>
-  </ion-item> -->
-
-
+    </div>
+  </div>
+    
+  <div class="ion-padding"> 
+    <div class="viaje-card">
+        
+            <h5 class="card-item titulo-viaje">Coordenadas de Localizaci&oacute;n</h5>
+        <ion-item>
+            <ion-label>
+                Latitud
+            </ion-label>
+            <ion-badge name="lat" color="primary" slot="end">{{latitude}}</ion-badge>
+        </ion-item>
+        <ion-item>
+            <ion-label>
+                Longitud
+            </ion-label>
+            <ion-badge name="lon" color="primary" slot="end">{{longitude}}</ion-badge>
+        </ion-item>
+        <ion-button (click)="obtenerCoordenadasActuales()" expand="block">Obtener Localizaci&oacute;n</ion-button>
+    </div>
 </div>
 
-<!-- <div class="wrap-input">
-  <input id="oeoe" class="input" type="text" formControlName="name" name="user-name" placeholder="Nombre de conductor" spellcheck="false">
-</div>
-
-<div class="wrap-input">
-  <input id="oeoe" class="input" type="text" formControlName="desc" name="desc" placeholder="Descripción" spellcheck="false">
-</div> -->
+  </div>
 
 </ion-content>

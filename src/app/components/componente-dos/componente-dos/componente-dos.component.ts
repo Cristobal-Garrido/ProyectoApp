@@ -94,7 +94,7 @@ export class ComponenteDosComponent implements OnInit {
     descripcionValue.value = '';
     precioValue.value = null;
     sectorValue.value = '';
-
+    this.router.navigate(['/home/uno']);
   }
 
   prueba() {
@@ -121,14 +121,6 @@ export class ComponenteDosComponent implements OnInit {
 
     console.log('viaje lleno', this.newViaje);
 
-    /* @ViewChild('nombre') referencia : ElementRef;
-
-    console.log('Nombre: ', this.nombre)
-    console.log('sector: ', this.sector)
-    console.log('patete: ', this.patente)
-    /* console.log('Referecia: ',this.referencia.nativeElement.innerText); */
-    /* const p = document.querySelector('#p') as HTMLElement;
-    p.innerText = value; */
   }
 
   verCambios(){
@@ -136,11 +128,6 @@ export class ComponenteDosComponent implements OnInit {
     console.log('sector: ', this.sector)
     console.log('patete: ', this.patente)
   }
-
-/*   onfocusPlace(event) {
-    this.newViaje.nombre = event.target.value;
-    console.log('Event: ',this.newViaje.nombre)
-  } */
 
   async presentAlert(head, msg, btn) {
     const alert = await this.alertController.create({

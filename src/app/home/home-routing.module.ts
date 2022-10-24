@@ -21,6 +21,10 @@ const routes: Routes = [
         path: 'dos',
         component: ComponenteDosComponent
       },
+      {
+        path: 'edit',
+        component: EditComponent
+      },
       
     ]
   }

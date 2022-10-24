@@ -11,6 +11,7 @@ import { Viaje } from '../models/interfaces';
 export class FireBaseBdService {
 
   public edit = false;
+  public viajeEdit: Viaje;
 
   /* newViaje: Viaje = {
     nombre: '',
@@ -28,6 +29,12 @@ export class FireBaseBdService {
     
     const ref = this.Firestore.collection<tipo>(enlace);
     return ref.doc(id).set(data);
+  }
+  
+  ejecutarMostrarViaje() {
+    console.log('ViajeEdit(BD): ', this.viajeEdit)
+    /* this.fireBase.viajeEdit = viaje;
+    console.log('viajeEdit: ',this.fireBase.viajeEdit) */
   }
 
   validateEdit() {
