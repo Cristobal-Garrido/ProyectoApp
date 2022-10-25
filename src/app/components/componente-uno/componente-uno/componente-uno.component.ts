@@ -100,5 +100,9 @@ export class ComponenteUnoComponent implements OnInit {
     console.log('viajeEdit: ',this.baseDatosService.viajeEdit)
   }
 
+  ningunLugar() {
+    this.router.navigate(['/home/holaxd']);
+  }
+
 }
 

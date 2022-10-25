@@ -94,7 +94,7 @@ export class ComponenteDosComponent implements OnInit {
     descripcionValue.value = '';
     precioValue.value = null;
     sectorValue.value = '';
-    this.router.navigate(['/home/uno']);
+    /* this.router.navigate(['/home/uno']); */
   }
 
   prueba() {
