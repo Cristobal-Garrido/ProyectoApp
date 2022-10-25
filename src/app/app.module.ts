@@ -13,6 +13,9 @@ import { CommonModule } from '@angular/common';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore/'; 
+import { AuthService } from './servicios/auth-guard.service';
+import { AuthGuard } from './servicios/auth-guard.guard';
+import { MapsModule } from './modules/maps/maps.module';
 /* import { HttpClient, HttpHeaders, HttpErrorResponse, HttpClientModule } from '@angular/common/http'; */
 
 
@@ -26,14 +29,15 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
     CommonModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    MapsModule,
     /* SQLite, */
     /* HttpClientModule,
     HttpHeaders,
     HttpErrorResponse,
     HttpClient */
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },Geolocation],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },Geolocation, AuthService, AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
