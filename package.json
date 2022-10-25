@@ -38,9 +38,11 @@
     "firebase": "^9.12.1",
     "ionicons": "^6.0.3",
     "mapbox-gl": "^2.10.0",
+    "ngx-mapbox-gl": "^9.1.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "uk.co.workingedge.cordova.plugin.sqliteporter": "^1.1.1",
+    "use-mapbox-gl": "^2.2.2",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
