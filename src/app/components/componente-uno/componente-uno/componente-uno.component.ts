@@ -1,10 +1,18 @@
-import { Component, OnInit,  NgZone  } from '@angular/core';
+import { Component, OnInit,  NgZone, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { ServiciobdService } from 'src/app/servicios/serviciobd.service';
 import { NavigationExtras, Router } from '@angular/router';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { LoadingController } from '@ionic/angular';
 import { Viaje } from 'src/app/models/interfaces';
 import { FireBaseBdService } from 'src/app/servicios/fire-base-bd.service';
+
+import { Popup, Marker } from 'mapbox-gl';
+
+import mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
+ 
+mapboxgl.accessToken = 'pk.eyJ1IjoiY3Jpc3RvYmFsLWdhcnJpZG8iLCJhIjoiY2w5bnBkMmowMDRnYjN1bXd1ZW8yNXZkcCJ9.enFPbRymB4K5HWOIWNxfgA';
+
+
 
 @Component({
   selector: 'app-componente-uno',
@@ -15,7 +23,7 @@ export class ComponenteUnoComponent implements OnInit {
 
   latitude: any = 0; //latitud
   longitude: any = 0; //longitud
-
+  coordenadas:any;
 
   options = {
       timeout: 10000, 
@@ -29,6 +37,10 @@ export class ComponenteUnoComponent implements OnInit {
 
   private path = 'home/uno'
 
+  @ViewChild('mapDiv')
+  mapDivElement!: ElementRef
+
+
   constructor(
     private router:Router,
     public baseDatosService: FireBaseBdService,
@@ -40,7 +52,9 @@ export class ComponenteUnoComponent implements OnInit {
     console.log('this.viajes: ',this.viajes)
     this.presentLoading();
     this.getItems();
+
   }
+
 
   getItems() {
     this.presentLoading();
@@ -72,6 +86,7 @@ export class ComponenteUnoComponent implements OnInit {
     this.baseDatosService.verificarbtn();
 
   }
+  
 
   obtenerCoordenadasActuales(){
     this.geolocation.getCurrentPosition().then((resp) => {
@@ -80,6 +95,24 @@ export class ComponenteUnoComponent implements OnInit {
     }).catch((error) => {
       console.log('Error obteniendo posición',error);
     })
+    if ( !this.obtenerCoordenadasActuales ) throw Error('No hay placesService.userLocaation')
+    const map = new mapboxgl.Map({
+      container: this.mapDivElement.nativeElement,
+      style: 'mapbox://styles/mapbox/streets-v11', // style URL
+      center: [this.longitude,this.latitude ], // starting position [lng, lat]
+      zoom: 14, // starting zoom
+      });
+    this.coordenadas = this.longitude,this.latitude
+    const popup = new Popup()
+      .setHTML(`
+      <h6>Aquí Estas</h6>
+      <span>Estás en este lugar de la Tierra</span>
+      `);
+    new Marker({ color: 'red '})
+      .setLngLat({lng:this.longitude, lat: this.latitude})
+      .setPopup( popup )
+      .addTo( map )
+      
   }
 }
 
@@ -114,17 +147,7 @@ export class ComponenteUnoComponent implements OnInit {
   /* eliminar(item) {
     this.servicioBD.deleteViaje(item.id);
     this.servicioBD.presentToast("Viaje Eliminado"); */
-/*   }
 
-<<<<<<< HEAD
-  obtenerCoordenadasActuales(){
-    this.geolocation.getCurrentPosition().then((resp) => {
-      this.latitude = resp.coords.latitude;
-      this.longitude = resp.coords.longitude;
-    }).catch((error) => {
-      console.log('Error obteniendo posición',error);
-    })
-  }
-}
-=======
-} */
+
+
+

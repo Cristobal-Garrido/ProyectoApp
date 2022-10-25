@@ -15,6 +15,7 @@ import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore/'; 
 import { AuthService } from './servicios/auth-guard.service';
 import { AuthGuard } from './servicios/auth-guard.guard';
+import { MapsModule } from './modules/maps/maps.module';
 /* import { HttpClient, HttpHeaders, HttpErrorResponse, HttpClientModule } from '@angular/common/http'; */
 
 
@@ -28,7 +29,8 @@ import { AuthGuard } from './servicios/auth-guard.guard';
     CommonModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    MapsModule,
     /* SQLite, */
     /* HttpClientModule,
     HttpHeaders,
