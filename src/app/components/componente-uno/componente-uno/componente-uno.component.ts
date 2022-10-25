@@ -9,7 +9,7 @@ import { FireBaseBdService } from 'src/app/servicios/fire-base-bd.service';
 import { Popup, Marker } from 'mapbox-gl';
 
 import mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
- 
+//npm install --save mapbox-gl
 mapboxgl.accessToken = 'pk.eyJ1IjoiY3Jpc3RvYmFsLWdhcnJpZG8iLCJhIjoiY2w5bnBkMmowMDRnYjN1bXd1ZW8yNXZkcCJ9.enFPbRymB4K5HWOIWNxfgA';
 
 
