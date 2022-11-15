@@ -10,6 +10,8 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+
+    
     <div class="jojo2">
         <div size="large" style="font-size: 16px;" class="title oeoe-title"></div>
         <div class="avatar">
@@ -20,6 +22,31 @@
         <h1 class="vtitle">Viajes disponibles</h1>
 
         <!-- <ion-button color="success" style="font-weight: 600;" shape="block" (click)="verificar()">verificar</ion-button> -->
+
+        <div class="ion-padding">
+            <div class="viaje-card">
+    
+                <h5 class="card-item titulo-viaje">Coordenadas de Localizaci&oacute;n</h5>
+                <ion-item>
+                    <ion-label>
+                        Latitud
+                    </ion-label>
+                    <ion-badge name="lat" color="primary" slot="end">{{latitude}}</ion-badge>
+                </ion-item>
+                <ion-item>
+                    <ion-label>
+                        Longitud
+                    </ion-label>
+                    <ion-badge name="lon" color="primary" slot="end">{{longitude}}</ion-badge>
+                </ion-item>
+                <ion-button (click)="obtenerCoordenadasActuales()" expand="block">Obtener Localizaci&oacute;n</ion-button>
+            </div>
+        <div>
+            <h5 style="color:#ffffff; left:0; right:0;">(Haga click en Obtener Localización 2 Veces)</h5>
+        </div>
+        </div>
+            <div style="padding-top: 50px; padding-bottom:50px; left:0; right:0; margin-left:auto; margin-right:auto; margin-bottom:auto; height: 90vw; width: 90vw;" #mapDiv class="map-container">
+        </div>
 
         <div class="viaje-card" *ngFor="let viaje of viajes">
             <h5 class="card-item titulo-viaje">Conductor: {{viaje.nombre}}</h5>
@@ -45,24 +72,5 @@
         </div>
     </div>
 
-    <div class="ion-padding">
-        <div class="viaje-card">
-
-            <h5 class="card-item titulo-viaje">Coordenadas de Localizaci&oacute;n</h5>
-            <ion-item>
-                <ion-label>
-                    Latitud
-                </ion-label>
-                <ion-badge name="lat" color="primary" slot="end">{{latitude}}</ion-badge>
-            </ion-item>
-            <ion-item>
-                <ion-label>
-                    Longitud
-                </ion-label>
-                <ion-badge name="lon" color="primary" slot="end">{{longitude}}</ion-badge>
-            </ion-item>
-            <ion-button (click)="obtenerCoordenadasActuales()" expand="block">Obtener Localizaci&oacute;n</ion-button>
-        </div>
-    </div>
-    <div style="padding-top: 50px; padding-right: 10px; height: 100vw; width: 100vw;" #mapDiv class="map-container"></div>
+    
 </ion-content>

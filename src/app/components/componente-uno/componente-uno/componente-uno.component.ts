@@ -14,8 +14,6 @@ import mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
 //SI TODO ESTO NO FUNCIONA, IR A TSCONFIG.JSON Y AGREGAR allowSyntheticDefaultImports: true;
 mapboxgl.accessToken = 'pk.eyJ1IjoiY3Jpc3RvYmFsLWdhcnJpZG8iLCJhIjoiY2w5bnBkMmowMDRnYjN1bXd1ZW8yNXZkcCJ9.enFPbRymB4K5HWOIWNxfgA';
 
-
-
 @Component({
   selector: 'app-componente-uno',
   templateUrl: './componente-uno.component.html',
