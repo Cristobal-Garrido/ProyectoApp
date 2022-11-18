@@ -1,72 +1,72 @@
 <ion-content>
-    
-<div class="jojo">
-  <h1 class="vtitle">Publicar un Viaje Nuevo</h1>
 
-  <ion-title size="large" style="font-size: 16px;" class="title oeoe-title"></ion-title>
+    <div class="jojo">
+        <h1 class="vtitle">Publicar un Viaje Nuevo</h1>
 
-  <!-- <ion-button color="success" style="font-weight: 600;" shape="block" (click)="verificar()">verificar</ion-button> -->
+        <ion-title size="large" style="font-size: 16px;" class="title oeoe-title"></ion-title>
 
-  <div class="viaje-card">
-    <div class="viajes-contenedor">
+        <!-- <ion-button color="success" style="font-weight: 600;" shape="block" (click)="verificar()">verificar</ion-button> -->
 
-      <!-- <ion-item>
+        <div class="viaje-card">
+            <div class="viajes-contenedor">
+
+                <!-- <ion-item>
         <ion-label position="floating" >Nombre:</ion-label>
         <ion-input type="text" [(ngModel)]="nombre" id="nombre"></ion-input>
       </ion-item> -->
 
-      <label class="lbl" for="nombreUp">Nombre:</label>
-        <div class="wrap-input">
-          <input id="nombre" class="input" type="text" formControlName="name" name="nombre" placeholder="" spellcheck="false">
-        </div>
-    
-      <!-- <ion-item>
+                <label class="lbl" for="nombreUp">Nombre:</label>
+                <div class="wrap-input">
+                    <input id="nombre" class="input" type="text" formControlName="name" name="nombre" placeholder="" spellcheck="false">
+                </div>
+
+                <!-- <ion-item>
         <ion-label position="floating" >Sector:</ion-label>
         <ion-input [(ngModel)]="sector" name="sector" id="sector" type="text"></ion-input>
       </ion-item> -->
 
-      <label class="lbl" for="sector">Sector:</label>
-        <div class="wrap-input">
-          <input id="sector" class="input" type="text" formControlName="name" name="sector" placeholder="" spellcheck="false">
-        </div>
-    
-      <!-- <ion-item>
+                <label class="lbl" for="sector">Sector:</label>
+                <div class="wrap-input">
+                    <input id="sector" class="input" type="text" formControlName="name" name="sector" placeholder="" spellcheck="false">
+                </div>
+
+                <!-- <ion-item>
         <ion-label position="floating" >Patente:</ion-label>
         <ion-input [(ngModel)]="patente" id="patente"></ion-input>
       </ion-item> -->
 
-      <label class="lbl" for="patente">Patente:</label>
-        <div class="wrap-input">
-          <input id="patente" class="input" type="text" formControlName="name" name="patente" placeholder="" spellcheck="false">
-        </div>
-    
-      <!-- <ion-item>
+                <label class="lbl" for="patente">Patente:</label>
+                <div class="wrap-input">
+                    <input id="patente" class="input" type="text" formControlName="name" name="patente" placeholder="" spellcheck="false">
+                </div>
+
+                <!-- <ion-item>
         <ion-label position="floating" >Precio:</ion-label>
         <ion-input type="number" [(ngModel)]="precio" id="precio"></ion-input>
       </ion-item> -->
 
-      <label class="lbl" for="precio">Precio:</label>
-        <div class="wrap-input">
-          <input id="precio" class="input" type="text" formControlName="name" name="precio" placeholder="" spellcheck="false">
-        </div>
-    
-      <!-- <ion-item>
+                <label class="lbl" for="precio">Precio:</label>
+                <div class="wrap-input">
+                    <input id="precio" class="input" type="text" formControlName="name" name="precio" placeholder="" spellcheck="false">
+                </div>
+
+                <!-- <ion-item>
         <ion-label position="floating" >Descripcion:</ion-label>
         <ion-input [(ngModel)]="descripcion" id="descripcion"></ion-input>
       </ion-item> -->
 
-      <label class="lbl" for="descripcion">Descripción:</label>
-        <div class="wrap-input">
-          <input id="descripcion" class="input" type="text" formControlName="name" name="descripcion" placeholder="" spellcheck="false">
+                <label class="lbl" for="descripcion">Descripción:</label>
+                <div class="wrap-input">
+                    <input id="descripcion" class="input" type="text" formControlName="name" name="descripcion" placeholder="" spellcheck="false">
+                </div>
+
+                <div class="pad"></div>
+
+                <ion-button id="PublicarViaje" shape="block" (click)="save()">Publicar Viaje</ion-button>
+
+            </div>
         </div>
 
-        <div class="pad"></div>
-  
-      <ion-button shape="block" (click)="save()">Publicar Viaje</ion-button>
-
     </div>
-  </div>
-
-  </div>
 
 </ion-content>

@@ -4,19 +4,19 @@
     </div>
     <ion-toolbar>
         <ion-segment color="success" value="uno" (ionChange)="segmentChanged($event)">
-            <ion-segment-button value="uno">
+            <ion-segment-button value="uno" id="Tab1">
                 <ion-icon name="man"></ion-icon>
             </ion-segment-button>
-            <ion-segment-button value="dos">
+            <ion-segment-button value="dos" id="Tab2">
                 <ion-icon name="car"></ion-icon>
             </ion-segment-button>
-          </ion-segment>
+        </ion-segment>
     </ion-toolbar>
 
 </ion-header>
 
 <ion-content [fullscreen]="true">
-   <!--  <ion-title size="large" style="font-size: 16px;" class="title oeoe-title"></ion-title>
+    <!--  <ion-title size="large" style="font-size: 16px;" class="title oeoe-title"></ion-title>
     <div>
         <ion-grid>
             <ion-row>
