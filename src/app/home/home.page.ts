@@ -49,6 +49,8 @@ export class HomePage {
     this.router.navigate(['home/'+direccion]);
   }
 
+
+
   /* async cerrarSesion(){
     const alert = await this.alertController.create({
       header: '¿Está seguro de Cerrar la Sesión?',

@@ -137,6 +137,9 @@ export class ComponenteUnoComponent implements OnInit {
     this.router.navigate(['/home/holaxd']);
   }
 
+  cerrarSesion(){
+    this.router.navigate(['/login'])
+  }
 }
 
 /*   ngOnInit(){
