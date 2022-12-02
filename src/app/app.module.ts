@@ -21,7 +21,7 @@ import { LoginRecoverPage } from './login-recover/login-recover.page';
 
 
 @NgModule({
-  declarations: [AppComponent, LoginRecoverPage],
+  declarations: [AppComponent],
   imports: [BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
