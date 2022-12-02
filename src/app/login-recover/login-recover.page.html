@@ -11,8 +11,6 @@
             </div>
         </ion-title>
     </ion-toolbar>
-    <script src="https://smtpjs.com/v3/smtp.js">
-    </script>
 </ion-header>
 
 
@@ -22,6 +20,17 @@
     <div class="form-title-container">
         <div class="form-title custom-font">TeLLevoApp</div>
     </div>
+    <!--  <form action="">
+      <ion-list>
+        <ion-item> -->
+    <!-- <ion-label>Titulo 1</ion-label>
+          <ion-input></ion-input> -->
+    <!-- <app-input>holaxd</app-input> -->
+    <!--  </ion-item>
+      </ion-list> -->
+
+    <!-- <ion-button type="submit" expand="block">Login</ion-button> -->
+    <!--  </form> -->
 
     <svg class="back-blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
     <path fill="#032B44" d="M35.1,-66.9C41.4,-57.1,39.7,-39.5,41.2,-27.1C42.6,-14.6,47.2,-7.3,53.6,3.7C60.1,14.8,68.4,29.5,64.8,38.3C61.3,47.1,45.9,50,33.1,53.7C20.4,57.5,10.2,62,-2.4,66.2C-15,70.3,-30,74.1,-40.5,69.1C-51.1,64.1,-57.2,50.3,-64.4,37.3C-71.6,24.4,-79.8,12.2,-75.5,2.5C-71.2,-7.2,-54.3,-14.4,-47.5,-28C-40.6,-41.5,-43.8,-61.4,-37.5,-71.3C-31.3,-81.1,-15.6,-80.9,-0.6,-79.8C14.4,-78.7,28.7,-76.7,35.1,-66.9Z" transform="translate(100 100)" />
@@ -30,18 +39,16 @@
 
     <div class="ion-padding form-container">
 
+        <!-- <form action=""> Produce error -->
         <div class="restablecer-info-container">
             <div class="restablecer-info">
-                Ingresa tu usuario institucional y te enviaremos un enlace para restablecer tu contraseña.
+                Ingresa tu correo institucional y te enviaremos un enlace para restablecer tu contraseña.
             </div>
         </div>
 
-
-        <form [formGroup]="login" #contactForm="ngForm">
+        <form action="" [formGroup]="login">
             <div class="wrap-input">
-                <input class="input" type="email" email name="email" formControlName="name" placeholder="Correo institucional" spellcheck="false">
-
-                <!--<input class="input" type="text" placeholder="Usuario Institucional" name="name" [(ngModel)]="ABC" #name="ngModel" required>-->
+                <input class="input" type="text" name="email" formControlName="name" placeholder="Correo institucional" spellcheck="false">
             </div>
 
             <div class="error-msg">
@@ -51,16 +58,29 @@
                     </ng-container>
                 </div>
             </div>
-            <ion-label *ngIf="form.get('email').touched && form.get('email').errors.required">Email invalido</ion-label>
+            <!-- <ion-label *ngIf="form.get('email').touched && form.get('email').errors.required">Email invalido</ion-label> -->
 
 
             <div class="container-form-btn">
                 <button (click)="enviarEnlace()" class="form-btn custom-font">Enviar</button>
             </div>
         </form>
+
+
+        <!-- </form> -->
         <div class="pass-recover-container">
-            <button (click)="irLogin()" class="form-btn custom-font">Volver a inicio de sesión</button>
+            <ion-router-link (click)="irLogin()">Volver a inicio de sesión</ion-router-link>
         </div>
     </div>
 
 </ion-content>
+
+
+
+<!-- <ion-footer class="ion-no-border custom-font">
+  <ion-toolbar class="">
+    <p class="ion-text-center custom-font">
+      aún no estas registrado? <a href="">Registrarse</a>
+    </p>
+  </ion-toolbar>
+</ion-footer> -->

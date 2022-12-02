@@ -2,46 +2,37 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
-import { FormControl, FormGroup, NgForm, NgModel, Validators } from '@angular/forms';
-import { HttpHeaders } from '@angular/common/http';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
   selector: 'app-login-recover',
   templateUrl: './login-recover.page.html',
   styleUrls: ['./login-recover.page.scss'],
-  exportAs: 'contactForm'
 })
 export class LoginRecoverPage implements OnInit {
-  [x: string]: any;
 
   login = new FormGroup({
-    user: new FormControl('', [Validators.required, Validators.email]),
+    name: new FormControl('', [Validators.required, Validators.email]),
   })
 
-  
   errors = [
     {type: 'required', message: '¿Olvidas algo? ¡Usuario vacio!'},
     {type: 'email', message: 'Correo Invalido'},
   ]
 
-  ABC: string = '';
-
-  fecha = new Date();
-
   constructor(
     private router: Router,
     public toastController: ToastController,
-    public alertController: AlertController,
+    public alertController: AlertController
      ) { }
 
   ngOnInit() {
   }
 
-  
   irLogin() {
     console.log("llamado siguiente")
-    this.router.navigate(['/login'])
+    this.router.navigate(['../login'])
     }
 
   async presentToast(msg: string, duracion?: number) {
@@ -62,6 +53,13 @@ export class LoginRecoverPage implements OnInit {
     let result = await alert.onDidDismiss();
     console.log(result);
   }
+
+  enviarEnlace() {
+    this.presentAlert('Recuperacion', 'Se ha enviado el enlace Correctamente', 'OK')
+    this.router.navigate(['../login'])
+    /* this.presentToast("El enlace ha sido enviado") */
+  }
+}
 
   
 
@@ -105,12 +103,3 @@ export class LoginRecoverPage implements OnInit {
     }
     this.presentAlert('Recuperacion', 'Se ha enviado el enlace Correctamente', 'OK')
   }*/
-
-  
-  enviarEnlace() {
-    this.presentAlert('Recuperacion', 'Se ha enviado el enlace Correctamente', 'OK')
-    this.router.navigate(['../login'])
-    /* this.presentToast("El enlace ha sido enviado") */
-  }
-}
-
