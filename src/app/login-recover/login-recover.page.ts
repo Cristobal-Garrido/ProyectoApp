@@ -4,7 +4,7 @@ import { ToastController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { FormControl, FormGroup, NgForm, NgModel, Validators } from '@angular/forms';
 import { HttpHeaders } from '@angular/common/http';
-import { EmailComposer } from '@awesome-cordova-plugins/email-composer/ngx';
+
 
 @Component({
   selector: 'app-login-recover',
@@ -33,7 +33,6 @@ export class LoginRecoverPage implements OnInit {
     private router: Router,
     public toastController: ToastController,
     public alertController: AlertController,
-    private emailComposer: EmailComposer,
      ) { }
 
   ngOnInit() {
@@ -109,6 +108,7 @@ export class LoginRecoverPage implements OnInit {
 
   
   enviarEnlace() {
+    this.presentAlert('Recuperacion', 'Se ha enviado el enlace Correctamente', 'OK')
     this.router.navigate(['../login'])
     /* this.presentToast("El enlace ha sido enviado") */
   }

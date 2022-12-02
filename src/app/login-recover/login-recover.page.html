@@ -39,9 +39,9 @@
 
         <form [formGroup]="login" #contactForm="ngForm">
             <div class="wrap-input">
-                <!--<input class="input" type="email" email name="email" formControlName="name" placeholder="Correo institucional" spellcheck="false">-->
+                <input class="input" type="email" email name="email" formControlName="name" placeholder="Correo institucional" spellcheck="false">
 
-                <input class="input" type="text" placeholder="Usuario Institucional" name="name" [(ngModel)]="ABC" #name="ngModel" required>
+                <!--<input class="input" type="text" placeholder="Usuario Institucional" name="name" [(ngModel)]="ABC" #name="ngModel" required>-->
             </div>
 
             <div class="error-msg">
@@ -51,11 +51,11 @@
                     </ng-container>
                 </div>
             </div>
-            <!-- <ion-label *ngIf="form.get('email').touched && form.get('email').errors.required">Email invalido</ion-label> -->
+            <ion-label *ngIf="form.get('email').touched && form.get('email').errors.required">Email invalido</ion-label>
 
 
             <div class="container-form-btn">
-                <button (click)="" class="form-btn custom-font">Enviar</button>
+                <button (click)="enviarEnlace()" class="form-btn custom-font">Enviar</button>
             </div>
         </form>
 
