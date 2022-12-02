@@ -6,7 +6,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 import { CommonModule } from '@angular/common';
@@ -16,11 +16,12 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
 import { AuthService } from './servicios/auth-guard.service';
 import { AuthGuard } from './servicios/auth-guard.guard';
 import { MapsModule } from './modules/maps/maps.module';
+import { LoginRecoverPage } from './login-recover/login-recover.page';
 /* import { HttpClient, HttpHeaders, HttpErrorResponse, HttpClientModule } from '@angular/common/http'; */
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoginRecoverPage],
   imports: [BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
