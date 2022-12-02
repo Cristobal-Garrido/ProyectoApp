@@ -2,38 +2,44 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, NgModel, Validators } from '@angular/forms';
 import { HttpHeaders } from '@angular/common/http';
-
+import { EmailComposer } from '@awesome-cordova-plugins/email-composer/ngx';
 
 @Component({
   selector: 'app-login-recover',
   templateUrl: './login-recover.page.html',
   styleUrls: ['./login-recover.page.scss'],
+  exportAs: 'contactForm'
 })
 export class LoginRecoverPage implements OnInit {
   [x: string]: any;
 
   login = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.email]),
+    user: new FormControl('', [Validators.required, Validators.email]),
   })
 
+  
   errors = [
     {type: 'required', message: '¿Olvidas algo? ¡Usuario vacio!'},
     {type: 'email', message: 'Correo Invalido'},
   ]
+
+  ABC: string = '';
 
   fecha = new Date();
 
   constructor(
     private router: Router,
     public toastController: ToastController,
-    public alertController: AlertController
+    public alertController: AlertController,
+    private emailComposer: EmailComposer,
      ) { }
 
   ngOnInit() {
   }
 
+  
   irLogin() {
     console.log("llamado siguiente")
     this.router.navigate(['../login'])
@@ -58,7 +64,28 @@ export class LoginRecoverPage implements OnInit {
     console.log(result);
   }
 
-  enviarCorreo(contactForm: NgForm) {
+  
+
+  /*alEnviarCorreo(contactForm: NgForm){
+    const form = contactForm.value;
+    const correo = form.name + '@duocuc.cl';
+    Email.send({
+      Host: 'smtp.elasticemail.com',
+      Username: 'tellevoappsupp@gmail.com',
+      Password: 'E5B5597E9D29ED7A1C6A09459E3E46F482F2',
+      To : this.correo,
+      From : 'tellevoappsupp@gmail.com',
+      Subject : 'Contraseña Olvidada TeLlevoApp',
+      Body : 'Buenas estimad@, se le envía este correo porque se solicitó un cambio de contraseña en la fecha ' + this.fecha + 
+      + 'https://passwordreset.microsoftonline.com/?ru=https%3a%2f%2flogin.microsoftonline.com%2f72fd0b5a-8a6a-4cff-89f6-bde961f7e250%2freprocess%3fctx%3drQQIARAA42KwMsgoKSkottLXT07MLSgtLsssKilNzNFLKc1P1kvO0U8sLcnQLU7MzdEHE8HB_kVCXAI71eew7rr6xHdOsGDV7TnrC1Yx2pFqjH5iTmZisX68oZGpcbzhIUb5RMNEQ8MMw4wMS0sLUwuLdOOUTKMM4ywjQwMDw8wUiwuMjC8YGW8xsQYDDTDaxKxibpSWYpBkmqhrkWiWqGuSnJama2GZZqablJJqaWaYZp5qZGpwgYXnFQuPAbMVBweXAIMEgwLDDxbGRaxAH0w4qZrio-zmP-PCrn3_-5cxnGLVdwoLK7HUtjDJCkssNgzKjMitKnRPNU9O8kgzDUrTN_U1trQsStR2jfBKzbY1tjKcwMZ7io3hAxtjBzvDLHaGXZwUBsEBXoYffJuXz7lxomXrWw8A0&mkt=es-419&hosted=0&device_platform=Windows+10' +
+      'Si usted no ha solicitado este cambio, por favor ignorar este correo.<br>' +
+      'ESTE ES UN CORREO AUTOMATIZADO, POR FAVOR NO RESPONDER'
+    }).then( message => {alert(message); contactForm.resetForm(); 
+      this.presentAlert('Recuperacion', 'Se ha enviado el enlace Correctamente', 'OK')} );
+    
+  }*/
+
+  /*enviarCorreo(contactForm: NgForm) {
     if (contactForm.valid) {
       const form = contactForm.value;
       const email = form.name + '@duocuc.cl';
@@ -78,8 +105,9 @@ export class LoginRecoverPage implements OnInit {
       )
     }
     this.presentAlert('Recuperacion', 'Se ha enviado el enlace Correctamente', 'OK')
-  }
+  }*/
 
+  
   enviarEnlace() {
     this.router.navigate(['../login'])
     /* this.presentToast("El enlace ha sido enviado") */
