@@ -41,7 +41,7 @@ export class LoginRecoverPage implements OnInit {
   
   irLogin() {
     console.log("llamado siguiente")
-    this.router.navigate(['../login'])
+    this.router.navigate(['/login'])
     }
 
   async presentToast(msg: string, duracion?: number) {
