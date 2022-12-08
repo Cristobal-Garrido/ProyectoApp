@@ -11,8 +11,18 @@
             </div>
         </ion-title>
     </ion-toolbar>
-</ion-header>
 
+    <script src="src/assets/js/email.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("94hwkOGrso9o2sECW");
+        })();
+    </script>
+
+
+</ion-header>
 
 
 <ion-content class="custom-font" [fullscreen]="true">
@@ -42,45 +52,55 @@
         <!-- <form action=""> Produce error -->
         <div class="restablecer-info-container">
             <div class="restablecer-info">
-                Ingresa tu correo institucional y te enviaremos un enlace para restablecer tu contraseña.
+                Ingresa tu correo y te enviaremos un enlace para restablecer tu contraseña.
             </div>
         </div>
 
         <form action="" [formGroup]="login">
             <div class="wrap-input">
-                <input class="input" type="text" name="email" formControlName="name" placeholder="Correo institucional" spellcheck="false">
+                <input class="input" type="text" placeholder="Nombre" formControlName="name" id="name">
+            </div>
+            <br>
+            <div class="wrap-input">
+                <input class="input" type="email" placeholder="Correo Institucional" id="email" formControlName="email">
+                <!--<input class="input " type="text " name="email " formControlName="name " placeholder="Usuario Institucional " spellcheck="false ">-->
             </div>
 
-            <div class="error-msg">
-                <div *ngFor="let er of errors">
-                    <ng-container *ngIf="login.get('name').hasError(er.type) && (login.get('name').touched || login.get('name').dirty)">
-                        <div class="error">{{er.message}}</div>
+            <br>
+            <br>
+            <!--<div class="error-msg ">
+                <div *ngFor="let er of errors ">
+                    <ng-container *ngIf="login.get( 'name').hasError(er.type) && (login.get( 'name').touched || login.get( 'name').dirty) ">
+                        <div class="error ">{{er.message}}</div>
                     </ng-container>
                 </div>
-            </div>
-            <!-- <ion-label *ngIf="form.get('email').touched && form.get('email').errors.required">Email invalido</ion-label> -->
+            </div>-->
+            <!-- <ion-label *ngIf="form.get( 'email').touched && form.get( 'email').errors.required ">Email invalido</ion-label> -->
 
 
-            <div class="container-form-btn">
+            <div class="container-form-btn ">
                 <button (click)="enviarEnlace()" class="form-btn custom-font">Enviar</button>
             </div>
         </form>
 
 
         <!-- </form> -->
-        <div class="pass-recover-container">
-            <ion-router-link (click)="irLogin()">Volver a inicio de sesión</ion-router-link>
+        <div class="pass-recover-container ">
+            <ion-router-link (click)="irLogin() ">Volver a inicio de sesión</ion-router-link>
         </div>
     </div>
+
+
+
 
 </ion-content>
 
 
 
-<!-- <ion-footer class="ion-no-border custom-font">
-  <ion-toolbar class="">
-    <p class="ion-text-center custom-font">
-      aún no estas registrado? <a href="">Registrarse</a>
+<!-- <ion-footer class="ion-no-border custom-font ">
+  <ion-toolbar class=" ">
+    <p class="ion-text-center custom-font ">
+      aún no estas registrado? <a href=" ">Registrarse</a>
     </p>
   </ion-toolbar>
 </ion-footer> -->

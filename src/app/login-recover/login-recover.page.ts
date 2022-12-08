@@ -3,6 +3,7 @@ import { Router, NavigationExtras } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import emailjs from '@emailjs/browser';
 
 
 @Component({
@@ -14,6 +15,7 @@ export class LoginRecoverPage implements OnInit {
 
   login = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.email]),
+    email:new FormControl(),
   })
 
   errors = [
@@ -21,11 +23,16 @@ export class LoginRecoverPage implements OnInit {
     {type: 'email', message: 'Correo Invalido'},
   ]
 
+  scriptElement: HTMLScriptElement;
+
   constructor(
     private router: Router,
     public toastController: ToastController,
-    public alertController: AlertController
-     ) { }
+    public alertController: AlertController,
+    ) {
+
+    }
+
 
   ngOnInit() {
   }
@@ -55,12 +62,18 @@ export class LoginRecoverPage implements OnInit {
   }
 
   enviarEnlace() {
+    const parametros = this.login.value;
+    emailjs.send('servicio_gmail', 'Plantilla de Prueba', parametros, '94hwkOGrso9o2sECW')
+    .then((result) =>{
+      console.log(result.text);
+    }, (error) => {
+      console.log(error.text);
+    })
     this.presentAlert('Recuperacion', 'Se ha enviado el enlace Correctamente', 'OK')
-    this.router.navigate(['../login'])
+    //this.router.navigate(['../login'])
     /* this.presentToast("El enlace ha sido enviado") */
   }
 }
-
   
 
   /*alEnviarCorreo(contactForm: NgForm){

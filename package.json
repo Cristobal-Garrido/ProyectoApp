@@ -29,6 +29,7 @@
     "@capacitor/haptics": "4.0.1",
     "@capacitor/keyboard": "4.0.1",
     "@capacitor/status-bar": "4.0.1",
+    "@emailjs/browser": "^3.10.0",
     "@ionic-native/core": "^5.22.0-beta-1",
     "@ionic-native/geolocation": "^5.36.0",
     "@ionic-native/google-maps": "^5.27.0-beta-20200630",
